@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fresh 2 Table</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Sedgwick+Ave+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header-mobile">
+        <h1 class="logo">Fresh 2 Table</h1>
+        <button class="open-menu" id="open-menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </header>
+      <aside>
+        <button class="close-menu" id="close-menu">
+          <i class="bi bi-x"></i>
+        </button>
+        <header>
+          <h1 class="logo">Fresh 2 Table</h1>
+        </header>
+        <nav>
+          <ul class="menu">
+            <li>
+              <button id="perfil" class="boton-menu boton-categoria active">
+                Perfil
+              </button>
+            </li>
+
+            <li>
+              <button id="historial" class="boton-menu boton-categoria">
+                Historial de compras
+              </button>
+            </li>
+            <li>
+              <a class="boton-menu boton-carrito" href="./carrito.html">
+                <i class="bi bi-cart-fill"></i> Carrito
+                <span id="numerito" class="numerito">0</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Sign out -->
+          <button class="boton-logout" id="logout">Logout</button>
+        </nav>
+        <footer>
+          <p class="texto-footer">© Fresh 2 Table</p>
+        </footer>
+      </aside>
+      <main>
+        <h1 class="titulo-principal" id="titulo-principal"></h1>
+        <div id="contenedor-informacion" class="contenedor-informacion">
+          <!-- Esto se va a rellenar con JS -->
+          <div class="card-name-profile">
+            <h1 id="titulo-card-perfil"></h1>
+
+            <div class="separator">
+              <div class="line"></div>
+            </div>
+
+            <div id="informacion-perfil">
+
+            </div>
+            
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="/js/home.js"></script>
+    <script src="/js/menu.js"></script>
+    <!-- <script src="/js/database.js"></script> -->
+  </body>
+</html>

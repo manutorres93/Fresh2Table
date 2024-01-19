@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/loginregister.css">
+    <title>Fresh To Table - Iniciar sesión</title>
+</head>
+<body>
+    <div class="container">
+        <div class="login-section"> 
+            <h1>Iniciar sesión</h1>
+
+            <div class="social-buttons">
+                <button><i class='bx bxl-google'></i>Usar Google</button>
+                <button><i class='bx bxl-windows'></i></i>Usar Outlook</button>
+            </div>
+
+            <div class="separator">
+                <div class="line"></div>
+                <p>o</p>
+                <div class="line"></div>
+            </div>
+
+            <form id='login-form'>
+                
+                <input type="email" placeholder="Correo electrónico" id="email-login" required autofocus>
+                <input type="password" placeholder="Contraseña" id="password-login" required >
+                <a href="#">Olvidé mi contraseña</a>
+                <button type="submit" class="btn-submit">Iniciar sesión</button>
+            </form>
+        </div>
+
+        <div class="signup-section">
+            <h1>Registrarse</h1>
+
+            <div class="social-buttons">
+                <button><i class='bx bxl-google'></i>Usar Google</button>
+                <button><i class='bx bxl-windows'></i></i>Usar Outlook</button>
+            </div>
+
+            <div class="separator">
+                <div class="line"></div>
+                <p>o</p>
+                <div class="line"></div>
+            </div>
+
+            <form id="signup-form">
+                <input type="text" placeholder="Nombre Completo" id="name" required autofocus>
+                <input type="email" placeholder="Correo electrónico" id="email" required>
+                <input type="password" placeholder="Contraseña" id="password" required>
+                <input type="text" placeholder="Edad" id="age" required>
+                <input type="text" placeholder="Documento de Identidad" id="id" required>
+                <input type="text" placeholder="Dirección" id="address" required>
+                
+                <button type="submit" class="btn-submit">Registrarse</button>
+            </form>
+        </div>
+
+
+    </div>
+
+
+    <script src="/js/loginregister.js"></script>
+    <script src="/js/db.js"></script>
+</body>
+</html>
+
