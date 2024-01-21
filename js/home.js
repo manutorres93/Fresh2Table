@@ -13,9 +13,9 @@ function saludar() {
 
   informacionPerfil.innerHTML = `
             <p>Edad: ${array.age}</p>
-            <p>Cedula:${array.id}</p>
-            <p>Correo electrónico:${array.email}</p>
-            <p>Dirección:${array.adress}</p>
+            <p>Cedula: ${array.id}</p>
+            <p>Correo electrónico: ${array.email}</p>
+            <p>Dirección: ${array.address}</p>
             `;
 
  nombreTitulo.innerHTML=`<h1>${array.name}</h1>`

@@ -18,8 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const user = JSON.parse(localStorage.getItem('users')) || false
 
-  if (user=== false) {
+  console.log(user);
+
+  if (!user) {
     localStorage.setItem("users", JSON.stringify(usuarios));
+    console.log(usuarios);
 }
   
 });
@@ -50,7 +53,9 @@ signupForm.addEventListener("submit", (e) => {
     return alert("El usuario ya está registrado");
   }
 
-  users.push({ name: name, email: email, password: password,age:age, id:id, adress:address });
+  users.push({ name: name, email: email, password: password,age: age,   
+  id: id,
+  address: address });
   localStorage.setItem("users", JSON.stringify(users));
   alert("Registro exitoso");
 
