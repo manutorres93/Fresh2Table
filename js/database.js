@@ -1,6 +1,6 @@
 const products = [
   {
-    name: "Manzana",
+    name: "manzana",
     id: 1,
     image: "manzana.png",
     pricePound: 3000,
@@ -9,7 +9,7 @@ const products = [
     description: "Tampoco tiene potaxio",
   },
   {
-    name: "Sandía",
+    name: "sandia",
     id: 2,
     image: "sandia.png",
     pricePound: 10000,
@@ -18,7 +18,7 @@ const products = [
     description: "No tiene potaxio",
   },
   {
-    name: "Fresa",
+    name: "fresa",
     id: 3,
     image: "fresa.png",
     pricePound: 5200,
@@ -27,7 +27,7 @@ const products = [
     description: "Tampoco tiene potaxio",
   },
   {
-    name: "Banano",
+    name: "banano",
     id: 4,
     image: "banano.png",
     pricePound: 150000,
@@ -36,7 +36,7 @@ const products = [
     description: "Tiene potaxio",
   },
   {
-    name: "Cereza",
+    name: "cereza",
     id: 5,
     image: "cereza.png",
     pricePound: 150000,
@@ -45,7 +45,7 @@ const products = [
     description: "No tiene potaxio",
   },
   {
-    name: "Melón",
+    name: "melon",
     id: 6,
     image: "melon.png",
     pricePound: 150000,
@@ -54,7 +54,7 @@ const products = [
     description: "No tiene potaxio",
   },
   {
-    name: "Mango",
+    name: "mango",
     id: 7,
     image: "mango.png",
     pricePound: 150000,
@@ -63,7 +63,7 @@ const products = [
     description: "No tiene potaxio",
   },
   {
-    name: "Pera",
+    name: "pera",
     id: 8,
     image: "pera.png",
     pricePound: 150000,

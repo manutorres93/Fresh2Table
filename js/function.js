@@ -110,26 +110,26 @@ function cleanCards() {
 };
 
 /*---------------FILTRAR FRUTA---------------*/
-iconSelectorFruits.addEventListener('click', event => {
-    //console.log(products[0].category);
+// iconSelectorFruits.addEventListener('click', event => {
+//     //console.log(products[0].category);
 
-    const product = products.filter(filterFruit);
+//     const product = products.filter(filterFruit);
 
-    products.forEach( object => {
-        //console.log(object.category);
-        showProducts(object)
+//     products.forEach( object => {
+//         //console.log(object.category);
+//         showProducts(object)
 
-        // if (object.category == 'frutas') {
-        //     console.log('fruits');
+//         // if (object.category == 'frutas') {
+//         //     console.log('fruits');
 
 
-        // } else {
-        // }
-    })
-});
+//         // } else {
+//         // }
+//     })
+// });
 
-function filterFruit(products) {
-    if (products.category ) {
-        return products.category
-    }
-}
+// function filterFruit(products) {
+//     if (products.category ) {
+//         return products.category
+//     }
+// }
