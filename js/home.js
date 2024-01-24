@@ -1,6 +1,25 @@
+const opcionHistorial= document.querySelector('#historial')
+const opcionPerfil =document.querySelector('#perfil')
+
+
 document.addEventListener("DOMContentLoaded", () => {
   saludar();
 });
+
+
+opcionHistorial.addEventListener('click', ()=>{
+    opcionHistorial.classList.add("active");
+    opcionPerfil.classList.remove("active");
+    llenarHistorial()
+    
+})
+
+opcionPerfil.addEventListener('click', ()=>{
+    opcionHistorial.classList.remove("active");
+    opcionPerfil.classList.add("active");
+    saludar()
+    
+})
 
 function saludar() {
   const saludo = document.querySelector("#titulo-principal");
@@ -13,13 +32,27 @@ function saludar() {
 
   informacionPerfil.innerHTML = `
             <p>Edad: ${array.age}</p>
-            <p>Cedula:${array.id}</p>
-            <p>Correo electrónico:${array.email}</p>
-            <p>Dirección:${array.adress}</p>
+            <p>Cedula: ${array.id}</p>
+            <p>Correo electrónico: ${array.email}</p>
+            <p>Dirección: ${array.address}</p>
             `;
 
  nombreTitulo.innerHTML=`<h1>${array.name}</h1>`
 }
+
+function llenarHistorial(){
+    console.log('historial');
+    const informacionHistorial = document.querySelector("#informacion-perfil");
+    const saludoHistorial = document.querySelector("#titulo-principal");
+
+    saludoHistorial.innerHTML = `Historial de compras`
+
+    informacionHistorial.innerHTML = `<p> No ha hecho ninguna compra </p>`
+}
+
+/* botonesCategorias.forEach(boton => boton.addEventListener("click", () => {
+    aside.classList.remove("aside-visible");
+})) */
 
 /* const productos = [
     // Abrigos
