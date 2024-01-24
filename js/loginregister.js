@@ -42,7 +42,8 @@ signupForm.addEventListener("submit", (e) => {
   console.log(password);
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
-  const isUserRefistered = users.find((user) => user.email === email);
+  const isUserRefistered = users.find((iterador) => iterador.email === email);
+
 
   if (isUserRefistered) {
     //redirección a login
