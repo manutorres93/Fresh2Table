@@ -6,9 +6,9 @@ export const getUsers= async()=>{
         const result = await fetch(url)
         const usersData = await result.json()
 
-        const users = Array.isArray(usersData) //? usersData : [];
+        const usersIsArray = Array.isArray(usersData) //? usersData : [];
 
-        console.log(users);
+        console.log(usersIsArray);
 
       
         return usersData

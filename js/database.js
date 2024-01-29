@@ -7,6 +7,7 @@ const products = [
     category: "frutas",
     from: "Rionegro",
     description: "Tampoco tiene potaxio",
+    quantity: 2
   },
   {
     name: "sandia",
@@ -16,6 +17,7 @@ const products = [
     category: "frutas",
     from: "El Retiro",
     description: "No tiene potaxio",
+    quantity: 3
   },
   {
     name: "fresa",
@@ -25,6 +27,7 @@ const products = [
     category: "frutas",
     from: "Rionegro",
     description: "Tampoco tiene potaxio",
+    quantity: 4
   },
   {
     name: "banano",
@@ -34,6 +37,7 @@ const products = [
     category: "frutas",
     from: "Barbosa",
     description: "Tiene potaxio",
+    quantity: 5
   },
   {
     name: "cereza",
@@ -43,6 +47,7 @@ const products = [
     category: "frutas",
     from: "Barbosa",
     description: "No tiene potaxio",
+    quantity: 6
   },
   {
     name: "melon",
@@ -52,6 +57,7 @@ const products = [
     category: "frutas",
     from: "Barbosa",
     description: "No tiene potaxio",
+    quantity: 7
   },
   {
     name: "mango",
@@ -61,6 +67,7 @@ const products = [
     category: "frutas",
     from: "Barbosa",
     description: "No tiene potaxio",
+    quantity: 1
   },
   {
     name: "pera",
@@ -70,5 +77,6 @@ const products = [
     category: "frutas",
     from: "Barbosa",
     description: "No tiene potaxio",
+    quantity: 1
   },
 ];
