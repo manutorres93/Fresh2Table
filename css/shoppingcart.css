@@ -30,12 +30,12 @@ a {
 
 .container {
     display: grid;
-    grid-template-columns: 1.3fr 4fr;
+    grid-template-columns: 0.8fr 4fr;
     background-color: var(--clr-main);
 }
 
 aside {
-    padding: 2rem 2rem 2rem 6rem;
+    padding: 2rem 2rem 2rem 2rem;
     padding-right: 0;
     color: var(--clr-white);
     position: sticky;
@@ -106,10 +106,6 @@ aside {
     box-shadow: 0 -1rem 0 var(--clr-white);
 }
 
-/* .boton-menu > i.bi-hand-index-thumb-fill,
-.boton-menu > i.bi-hand-index-thumb {
-    transform: rotateZ(90deg);
-} */
 
 .boton-carrito {
     margin-top: 2rem;

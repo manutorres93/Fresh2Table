@@ -30,7 +30,7 @@ const botonComprar = document.querySelector("#carrito-acciones-comprar");
 
 
 /* -----TRAER PRODUCTOS DEL LOCALSTORAGE */
-const products_cart= JSON.parse(localStorage.getItem('products_cart')) //productosnecarito
+const products_cart= JSON.parse(localStorage.getItem('products_cart')) //productos en carito
 console.log(products_cart);
 
 /* Pintar el carrito de compras dentro del perfil */
