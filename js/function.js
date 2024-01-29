@@ -1,9 +1,16 @@
 /*---------------CARGAR LA BASE DE DATOS--------------- */
 
-document.addEventListener('DOMContentLoaded', ()=>{ /* Mientras se cargue el DOM, a a ocurrir lo que haya adentro */
-    showProducts(products); /* En este caso mostrar los productos */
-
-});
+document.addEventListener('DOMContentLoaded', () => {
+    // Cargar el archivo JSON
+    fetch('../js/products.json')
+      .then(response => {return response.json()})
+      .then(data => {
+        // Llamar a la función showProducts con los datos cargados
+        showProducts(data);
+        nombre = data;
+      })
+      .catch(error => console.error('Error cargando el archivo JSON:', error));
+  });
 
 /*---------------VARIABLES Y SELECTORES---------------*/
 
@@ -14,46 +21,52 @@ const criterioSeleccionado = { // Se crea para guardar el valor que se esté bus
     name : '' // Aqui se guarda el critero seleccionado
 
 };
-const iconSelectorFruits = document.querySelector('.icon-selector-fruits');
+const iconSelectorFruits = document.querySelector('.fruits');
+const iconSelectorVegetables = document.querySelector('.vegetables');
+const titleFruits = document.querySelector('.titulo-frutas');
+const titleVegetables = document.querySelector('.titulo-verduras');
+let nombre = '';
 
 
 /*---------------INYECTAR LAS CARDS--------------- */
 function showProducts(products) {
-    
     /* Selector para tarjetas */
     const cardContainer = document.querySelector('#cardContainer');
     
     products.forEach((product)=>{
+        console.log(product);
         const productCard = document.createElement('div');
          
         
         productCard.innerHTML = `
         <div class="separador">
-        <div class="image">
-        <figure>
-        <img src="../Img/${product.image}" alt="">
-        </figure>
-        </div>
-        
-        <div class="titleProduct">
-        <h3 class="productName">${product.name}</h3>
-        </div>
-        
-        <div class="description">
-        <p class="productDescription">${product.description}</p>
-        </div>
-        
-        <div class="price">
-        <p class="productPrice"> $ ${product.pricePound} COP</p>
-        </div>
-        
-        <div class="cart">
-        
-        <button class="addCart">
-        <p class="textAddCart">Agregar al carrito</p>
-        </button>
-        
-        </div>
+            <div class="image">
+                <figure>
+                    <img src="../Img/${product.image}" alt="">
+                </figure>
+            </div>
+            
+            <div class="titleProduct">
+                <h3 class="productName">${product.name}</h3>
+            </div>
+            
+            <div class="description">
+                <p class="productDescription">${product.description}</p>
+            </div>
+            
+            <div class="price">
+                <p class="productPrice"> $ ${product.pricePound
+                
+                } COP</p>
+            </div>
+            
+            <div class="cart">
+            
+                <button class="addCart">
+                    <p class="textAddCart">Agregar al carrito</p>
+                </button>
+            
+            </div>
         </div>
         `;
         cardContainer.appendChild(productCard);
@@ -68,7 +81,8 @@ inputSearch.addEventListener('input', event =>{
     //console.log(event.target.value);
     
     // STEP 4 (Buscador) - Igualar lo que la persona escribió, a nuestra variable donde ibamos a guardar el valor
-    criterioSeleccionado.name = event.target.value
+    criterioSeleccionado.name = event.target.value;
+
     // console.log(criterioSeleccionado.name);
     
     //  STEP 5 (Buscador) - Llamar a la funcion de filtrar
@@ -77,11 +91,11 @@ inputSearch.addEventListener('input', event =>{
 
 // STEP 6 (Buscador) 
 function filterName() {
-    const product = products.filter(filterByName); // Filtra segun lo que le pasemos en los parametros
+    const product = nombre.filter(filterByName); // Filtra segun lo que le pasemos en los parametros
 
-    console.log(product); // Se convierte en un array nuevo con los parametros filtrados
-    console.log(product[0]);
-    console.log(product[0].name);
+    //console.log(product); // Se convierte en un array nuevo con los parametros filtrados
+    //console.log(product[0]);
+    //console.log(product[0].name);
     
     // STEP 10 (Buscador)  - Llamar a la funcion de limpiar 
     cleanCards(); // La función se llama antes porque debemos primero limpiar y despues mostrar
@@ -90,6 +104,8 @@ function filterName() {
     showProducts(product); // 'product' porque estamos mostrando el producto ya filtrado
 
 };
+
+// "hola"   ->  
 
 // STEP 7 (Buscador)
 function filterByName(products) { // El parametro es el nombre de la lista en la que vamos a buscar
@@ -110,26 +126,72 @@ function cleanCards() {
 };
 
 /*---------------FILTRAR FRUTA---------------*/
-// iconSelectorFruits.addEventListener('click', event => {
-//     //console.log(products[0].category);
-
-//     const product = products.filter(filterFruit);
-
-//     products.forEach( object => {
-//         //console.log(object.category);
-//         showProducts(object)
-
-//         // if (object.category == 'frutas') {
-//         //     console.log('fruits');
 
 
-//         // } else {
-//         // }
-//     })
-// });
+function filterByCategory(category) {
+    const filterProducts = nombre.filter(product => product.category === category);
+    
+    showFruits(filterProducts);
+};
 
-// function filterFruit(products) {
-//     if (products.category ) {
-//         return products.category
-//     }
-// }
+function showFruits(produtsToShow) {
+    
+    cleanCards();
+
+    /*const cardContainer = document.querySelector('#cardContainer');
+    cardContainer.innerHTML = '';*/
+    
+    produtsToShow.forEach( product => {
+        const card = document.createElement('div');
+
+        card.innerHTML = `
+        <div class="separador">
+            <div class="image">
+                <figure>
+                    <img src="../Img/${product.image}" alt="">
+                </figure>
+            </div>
+            
+            <div class="titleProduct">
+                <h3 class="productName">${product.name}</h3>
+            </div>
+            
+            <div class="description">
+                <p class="productDescription">${product.description}</p>
+            </div>
+            
+            <div class="price">
+                <p class="productPrice"> $ ${product.pricePound
+                
+                } COP</p>
+            </div>
+            
+            <div class="cart">
+            
+                <button class="addCart">
+                    <p class="textAddCart">Agregar al carrito</p>
+                </button>
+            
+            </div>
+        </div>
+        `;
+        cardContainer.appendChild(card);
+    })
+    
+};
+
+iconSelectorFruits.addEventListener('click', function () {
+    iconSelectorVegetables.style = "background-color:none";
+    iconSelectorFruits.style = "filter: invert(19%) sepia(99%) saturate(4976%) hue-rotate(112deg) brightness(99%) contrast(104%);";
+    titleFruits.style = "color: #008000";
+    titleVegetables.style = "color: none";
+    filterByCategory('frutas');
+});
+
+iconSelectorVegetables.addEventListener('click',function () {
+    iconSelectorFruits.style = "background-color:none";
+    iconSelectorVegetables.style = "filter: invert(19%) sepia(99%) saturate(4976%) hue-rotate(112deg) brightness(99%) contrast(104%);";
+    titleVegetables.style = "color: #008000";
+    titleFruits.style = "color: none";
+    filterByCategory('verduras');
+});
