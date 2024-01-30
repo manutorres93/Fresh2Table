@@ -1,3 +1,7 @@
+/* Importando usuarios de db desde la API */
+
+import { getUsers } from "./API.js";
+
 /* Para que se desplace el div de registro, creación de clase active que tiene las propiedades en el css*/
 
 const container = document.querySelector(".container");
@@ -12,9 +16,8 @@ signupButton.addEventListener("click", () => {
   container.classList.add("active");
 });
 
-
-/* Cargar la db inicial, que se traiga desde JS */
-document.addEventListener("DOMContentLoaded", () => {
+/* Cargar la db inicial, que se traiga desde JS, lo setea en localstorage */
+/* document.addEventListener("DOMContentLoaded", () => {
 
   const user = JSON.parse(localStorage.getItem('users')) || false
 
@@ -25,11 +28,54 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(usuarios);
 }
   
+}); */
+
+/* Descomentando esto "seteo" lo que carga en el DOM inicialmente de la db */
+/* localStorage.removeItem('users') */
+
+/* Cargar la db inicial que la traiga de json */
+let usersData;
+
+document.addEventListener("DOMContentLoaded", bringUsers);
+
+async function bringUsers() {
+  console.log("holaaaa");
+  usersData = await getUsers();
+
+  console.log(usersData);
+}
+
+/* Para el login desde bd JSON */
+const loginForm = document.querySelector("#login-form");
+
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault(); //para que no se recargue la pagina
+
+  const email = document.querySelector("#email-login").value; //captura los valores del formulario login
+  const password = document.querySelector("#password-login").value;
+
+  console.log(usersData);
+  console.log(typeof usersData);
+
+  const userFound = usersData.find(
+    (user) => user.email === email && user.password === password
+  );
+
+  console.log(userFound);
+  
+  if (!userFound) {
+    alert("Usuario y/o contraseña incorrectos");
+  } else {
+    alert(`Bienvenido ${userFound.name}`);
+
+    localStorage.setItem("login_success", JSON.stringify(userFound));
+    window.location.href = "home.html";
+  }
 });
 
 /* Para la base de datos con localStorage, para el registro*/
 
-const signupForm = document.querySelector("#signup-form");
+/* const signupForm = document.querySelector("#signup-form");
 
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -45,7 +91,7 @@ signupForm.addEventListener("submit", (e) => {
   console.log(password);
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
-  const isUserRefistered = users.find((user) => user.email === email);
+  const isUserRefistered = users.find((iterador) => iterador.email === email);
 
   if (isUserRefistered) {
     //redirección a login
@@ -53,9 +99,14 @@ signupForm.addEventListener("submit", (e) => {
     return alert("El usuario ya está registrado");
   }
 
-  users.push({ name: name, email: email, password: password,age: age,   
-  id: id,
-  address: address });
+  users.push({
+    name: name,
+    email: email,
+    password: password,
+    age: age,
+    id: id,
+    address: address,
+  });
   localStorage.setItem("users", JSON.stringify(users));
   alert("Registro exitoso");
 
@@ -66,12 +117,12 @@ signupForm.addEventListener("submit", (e) => {
 
   container.classList.remove("active");
 });
-
+ */
 /* Para el login */
 
-const loginForm = document.querySelector("#login-form");
+//const loginForm = document.querySelector("#login-form");
 
-loginForm.addEventListener("submit", (e) => {
+/* loginForm.addEventListener("submit", (e) => {
   e.preventDefault(); //para que no se recargue la pagina
 
   const email = document.querySelector("#email-login").value;
@@ -92,6 +143,4 @@ loginForm.addEventListener("submit", (e) => {
     window.location.href = "home.html";
   }
 });
-
-/* Descomentando esto "seteo" lo que carga en el DOM inicialmente de la db */
-/* localStorage.removeItem('users') */
+ */
