@@ -187,3 +187,29 @@ p {
 .filtro{
   display: none;
 }
+
+/*MODAL*/
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px; /* ajusta el ancho según tus necesidades */
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  height: 100%;
+  z-index: 1000;
+  border-top-left-radius: 1rem;
+
+}
+
+.close-button{
+  border-radius: 2rem;
+  position: absolute;
+  right: 0;
+  width: 30%;
+  height: 5%;
+}

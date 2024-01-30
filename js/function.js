@@ -21,6 +21,7 @@ const criterioSeleccionado = { // Se crea para guardar el valor que se esté bus
     name : '' // Aqui se guarda el critero seleccionado
 
 };
+const iconSelectorCart = document.querySelector('.icono-selector-cart');
 const iconSelectorFruits = document.querySelector('.fruits');
 const iconSelectorVegetables = document.querySelector('.vegetables');
 const titleFruits = document.querySelector('.titulo-frutas');
@@ -105,7 +106,6 @@ function filterName() {
 
 };
 
-// "hola"   ->  
 
 // STEP 7 (Buscador)
 function filterByName(products) { // El parametro es el nombre de la lista en la que vamos a buscar
@@ -194,4 +194,32 @@ iconSelectorVegetables.addEventListener('click',function () {
     titleVegetables.style = "color: #008000";
     titleFruits.style = "color: none";
     filterByCategory('verduras');
+});
+
+/* CARRITO DE COMPRAS */
+
+
+
+iconSelectorCart.addEventListener('click', function () {
+    const modal = document.querySelector('.modal');
+    const closeButton = document.querySelector('.close-button');
+  
+    function openModal() {
+        modal.style.display = 'block';
+    }
+  
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+  
+
+    openModal();
+  
+
+    closeButton.addEventListener('click', function () {
+        closeModal();
+    });
+  
+
+  
 });
