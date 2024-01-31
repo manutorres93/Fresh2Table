@@ -11,7 +11,7 @@ export function numeroCarrito(){
     
     }else{
   
-      localStorage.setItem("products_cart", JSON.stringify(products));
+      //localStorage.setItem("products_cart", JSON.stringify(products));
       products_cart= JSON.parse(localStorage.getItem('products_cart'))
       numeroCarrito= products_cart.length
   
