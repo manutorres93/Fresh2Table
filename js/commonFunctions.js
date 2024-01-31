@@ -2,26 +2,18 @@
 
 export function numeroCarrito(){
 
-    let numeroCarrito;
-    //Esta primera parte es función del carrito, verificar si se puede hacer una osla función, exportarla y traerla aqui
-    let products_cart= JSON.parse(localStorage.getItem('products_cart')) //productos en carito
+  let productsInCart= JSON.parse(localStorage.getItem('products_cart')) //productos en carito
+
+  let newNumberCart = productsInCart.reduce((accumulator, product) => accumulator + product.quantityInCart, 0);
+  console.log(newNumberCart);
   
-    if(products_cart){
-      numeroCarrito= products_cart.length
-    
-    }else{
+  const numberCart= document.querySelector('#numerito')
   
-      //localStorage.setItem("products_cart", JSON.stringify(products));
-      products_cart= JSON.parse(localStorage.getItem('products_cart'))
-      numeroCarrito= products_cart.length
+  numberCart.innerText=newNumberCart
+
+  console.log(newNumberCart);
+
   
-    }
-  
-    const numberCart= document.querySelector('#numerito')
-  
-    numberCart.innerText=numeroCarrito
-  
-    console.log(numeroCarrito);
   
   }
 

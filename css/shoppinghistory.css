@@ -333,13 +333,15 @@ main {
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px; /* Ajusta el ancho según tus necesidades */
+    width: 900px; /* Ajusta el ancho según tus necesidades */
     max-width: 90%; /* Limita el ancho máximo para pantallas pequeñas */
     border-radius: 8px;
+    padding: 10px;
 }
 
 .modal-content {
     padding: 16px;
+
 }
 
 .modal-header {
@@ -347,13 +349,29 @@ main {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
-    padding-bottom: 8px;
+    padding-bottom:  8px;
     margin-bottom: 8px;
+ 
 }
 
 .modal-title {
     margin: 0;
+    color: var(--clr-main);
 }
+
+.table{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    color: var(--clr-main);
+}
+.table tr{
+    text-align: center;
+    color: var(--clr-main);
+    padding-top: 50px;
+}
+
+
 
 .close-btn {
     background: none;
