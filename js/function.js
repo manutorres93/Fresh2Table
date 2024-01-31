@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(data => {
         // Llamar a la función showProducts con los datos cargados
         showProducts(data);
-        nombre = data;
+        dataProducts = data;
       })
       .catch(error => console.error('Error cargando el archivo JSON:', error));
-  });
+});
+
 
 /*---------------VARIABLES Y SELECTORES---------------*/
 
@@ -19,14 +20,16 @@ const inputSearch = document.getElementById('input-search');
 // STEP 2 (Buscador) - Crear una variable para guardar lo que la persona escribió
 const criterioSeleccionado = { // Se crea para guardar el valor que se esté buscando en ese momento 
     name : '' // Aqui se guarda el critero seleccionado
-
 };
 const iconSelectorCart = document.querySelector('.icono-selector-cart');
-const iconSelectorFruits = document.querySelector('.fruits');
 const iconSelectorVegetables = document.querySelector('.vegetables');
-const titleFruits = document.querySelector('.titulo-frutas');
+const iconSelectorFruits = document.querySelector('.fruits');
 const titleVegetables = document.querySelector('.titulo-verduras');
-let nombre = '';
+const titleFruits = document.querySelector('.titulo-frutas');
+const productsInCart = [];
+const numbersProductsInCart = document.querySelector('#numeroProductosEnCarrito');
+let buttonsAddCart = document.querySelectorAll('.buttonsAddCart'); // STEP 1 (Carrito) - Crear una variable para el boton de agregar al carrito
+let dataProducts = '';
 
 
 /*---------------INYECTAR LAS CARDS--------------- */
@@ -35,7 +38,7 @@ function showProducts(products) {
     const cardContainer = document.querySelector('#cardContainer');
     
     products.forEach((product)=>{
-        console.log(product);
+        //console.log(product.id);
         const productCard = document.createElement('div');
          
         
@@ -43,7 +46,7 @@ function showProducts(products) {
         <div class="separador">
             <div class="image">
                 <figure>
-                    <img src="../Img/${product.image}" alt="">
+                    <img src="../Img/Frutas/${product.image}" alt="">
                 </figure>
             </div>
             
@@ -56,15 +59,13 @@ function showProducts(products) {
             </div>
             
             <div class="price">
-                <p class="productPrice"> $ ${product.pricePound
-                
-                } COP</p>
+                <p class="productPrice"> $ ${product.pricePound} COP</p>
             </div>
             
             <div class="cart">
             
-                <button class="addCart">
-                    <p class="textAddCart">Agregar al carrito</p>
+                <button class="buttonsAddCart" id="${product.id}">
+                    <p class="textbuttonsAddCart">Agregar al carrito</p>
                 </button>
             
             </div>
@@ -72,8 +73,10 @@ function showProducts(products) {
         `;
         cardContainer.appendChild(productCard);
     });
-    
+
+    updateButtonAdd(); // STEP 3 (Carrito) - Llamar la función despues del forEach para que actualice el selector de botones siempre que la pagina cargue de nuevo
 };
+
 
 /*---------------BUSCADOR---------------*/
 
@@ -92,7 +95,7 @@ inputSearch.addEventListener('input', event =>{
 
 // STEP 6 (Buscador) 
 function filterName() {
-    const product = nombre.filter(filterByName); // Filtra segun lo que le pasemos en los parametros
+    const product = dataProducts.filter(filterByName); // Filtra segun lo que le pasemos en los parametros
 
     //console.log(product); // Se convierte en un array nuevo con los parametros filtrados
     //console.log(product[0]);
@@ -120,21 +123,19 @@ function filterByName(products) { // El parametro es el nombre de la lista en la
 function cleanCards() {
     const cardContainer = document.querySelector('#cardContainer');
 
-    cardContainer.innerHTML = `
-    
-    `;
+    cardContainer.innerHTML = '';
 };
 
-/*---------------FILTRAR FRUTA---------------*/
 
+/*---------------FILTRAR FRUTAS Y VERDURAS---------------*/
 
 function filterByCategory(category) {
-    const filterProducts = nombre.filter(product => product.category === category);
+    const filterProducts = dataProducts.filter(product => product.category === category);
     
-    showFruits(filterProducts);
+    showFoodFiltered(filterProducts);
 };
 
-function showFruits(produtsToShow) {
+function showFoodFiltered(produtsToShow) {
     
     cleanCards();
 
@@ -148,7 +149,7 @@ function showFruits(produtsToShow) {
         <div class="separador">
             <div class="image">
                 <figure>
-                    <img src="../Img/${product.image}" alt="">
+                    <img src="../Img/Frutas/${product.image}" alt="">
                 </figure>
             </div>
             
@@ -168,19 +169,21 @@ function showFruits(produtsToShow) {
             
             <div class="cart">
             
-                <button class="addCart">
-                    <p class="textAddCart">Agregar al carrito</p>
+                <button class="buttonsAddCart" id="${product.id}">
+                    <p class="textbuttonsAddCart">Agregar al carrito</p>
                 </button>
             
             </div>
         </div>
         `;
         cardContainer.appendChild(card);
-    })
-    
+    });
+
+    updateButtonAdd(); // STEP 3 (Carrito) - Llamar la función despues del forEach para que actualice el selector de botones siempre que la pagina cargue de nuevo
 };
 
-iconSelectorFruits.addEventListener('click', function () {
+iconSelectorFruits.addEventListener('click', function (e) {
+    e.preventDefault();
     iconSelectorVegetables.style = "background-color:none";
     iconSelectorFruits.style = "filter: invert(19%) sepia(99%) saturate(4976%) hue-rotate(112deg) brightness(99%) contrast(104%);";
     titleFruits.style = "color: #008000";
@@ -188,7 +191,8 @@ iconSelectorFruits.addEventListener('click', function () {
     filterByCategory('frutas');
 });
 
-iconSelectorVegetables.addEventListener('click',function () {
+iconSelectorVegetables.addEventListener('click',function (e) {
+    e.preventDefault();
     iconSelectorFruits.style = "background-color:none";
     iconSelectorVegetables.style = "filter: invert(19%) sepia(99%) saturate(4976%) hue-rotate(112deg) brightness(99%) contrast(104%);";
     titleVegetables.style = "color: #008000";
@@ -196,30 +200,66 @@ iconSelectorVegetables.addEventListener('click',function () {
     filterByCategory('verduras');
 });
 
-/* CARRITO DE COMPRAS */
 
+/*---------------MODAL CARRITO DE COMPRAS---------------*/
 
-
-iconSelectorCart.addEventListener('click', function () {
+iconSelectorCart.addEventListener('click', function (e) {
+    e.preventDefault();
     const modal = document.querySelector('.modal');
     const closeButton = document.querySelector('.close-button');
   
     function openModal() {
         modal.style.display = 'block';
-    }
+    };
   
     function closeModal() {
         modal.style.display = 'none';
-    }
+    };
   
-
     openModal();
   
-
     closeButton.addEventListener('click', function () {
         closeModal();
     });
   
-
-  
 });
+
+/*---------------AGREGAR AL CARRITO---------------*/
+
+function updateButtonAdd() { // STEP 2 (Carrito) - Crear la funcion donde indicamos que nuestra variable será igual a todos los botones de agregar al carrito
+    buttonsAddCart = document.querySelectorAll('.buttonsAddCart');
+    
+    buttonsAddCart.forEach( buttonAddCart => { // STEP 4 (Carrito) - Agregar un forEach a los botones para que los recorra todos
+       buttonAddCart.addEventListener('click', addToCart); // STEP 5 (Carrito) - Agregarle un evento a cada boton donde llame a la funcion de agregar al carrito
+    });
+};
+
+function addToCart(event) { // STEP 5 (Carrito) - Crear la funcion
+    const idButton = event.currentTarget.id; // STEP 6 (Carrito) - Aqui se guarda el ID del evento (click) en la variable idButton, esto para igualar el id del producto cuando le damos click
+    let productAdded = '';
+
+    dataProducts.forEach(product => { product.id == idButton ? productAdded = product : "Not found" // STEP 7 (Carrito) - Buscar un producto donde el producto.id sea igual a idbutton, si es asi el producto agregado va a ser igual al producto
+    });
+
+   if (productsInCart.some(product => product.id == idButton)) { // STEP 8 (Carrito) - Con .some() preguntamos si el producto ya esta en el carrito. Some regresa un buleano
+    const index = productsInCart.findIndex( product => product.id == idButton); // STEP 10 (Carrito) - Guardamos en la varianle el index del array del producto que la persona seleccionó (lo que seleccione de primero será el index 0 y asi secesivamente)
+    productsInCart[index].quantityInCart++; // STEP 11 (Carrito) - A productos en el carrito, en la posicion del index correspndiente, se le sumará cadavez que se haga click en agregar al carrito
+
+
+   } else {
+    productAdded.quantityInCart = 1; // STEP 9 (Carrito) - Le agregamos la propiedad de cantidad para que cuantificar cuantos de esos productos esta agregando al carrito
+    productsInCart.push(productAdded);
+
+   };
+
+   updateNumbersInCart();
+
+   localStorage.setItem('products_cart', JSON.stringify(productsInCart))
+};
+
+function updateNumbersInCart() {
+    let newNumberCart = productsInCart.reduce((accumulator, product) => accumulator + product.quantityInCart, 0);
+    console.log(newNumberCart);
+
+    numbersProductsInCart.innerHTML = newNumberCart;
+}
