@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 const products_cart = JSON.parse(localStorage.getItem('products_cart'));
+console.log(products_cart);
 
 if(products_cart){
     
