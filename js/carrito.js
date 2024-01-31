@@ -3,14 +3,15 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 const products_cart = JSON.parse(localStorage.getItem('products_cart'));
+console.log(products_cart);
 
 if(products_cart){
     
     cargarProductosCarrito()
-}else{ //lo más seguro es que tenga que eliminar esto cuando ya funcione lo de juanes, ya que lo que quiero cargar es si o si lo que hay en local storage
+}/* else{ //lo más seguro es que tenga que eliminar esto cuando ya funcione lo de juanes, ya que lo que quiero cargar es si o si lo que hay en local storage
 
     localStorage.setItem("products_cart", JSON.stringify(products));
-}
+} */
 
 /* Para setear el localStorage del carrito*/
 /*  localStorage.removeItem('products_cart')  */
@@ -47,7 +48,7 @@ function cargarProductosCarrito(){ //Carga todo lo que hay en localStorage
     
         products_cart.forEach(product => {
     
-            const {image, name,pricePound, quantity,id}=product
+            const {image, name,pricePound, quantityInCart,id}=product
         
             const div = document.createElement("div");
             div.classList.add("carrito-producto");
@@ -59,7 +60,7 @@ function cargarProductosCarrito(){ //Carga todo lo que hay en localStorage
                 </div>
                 <div class="carrito-producto-cantidad">
                     <small>Cantidad</small>
-                    <p>${quantity}</p>
+                    <p>${quantityInCart}</p>
                 </div>
                 <div class="carrito-producto-precio">
                     <small>Precio</small>
@@ -67,7 +68,7 @@ function cargarProductosCarrito(){ //Carga todo lo que hay en localStorage
                 </div>
                 <div class="carrito-producto-subtotal">
                     <small>Subtotal</small>
-                    <p>${quantity*pricePound}</p>
+                    <p>${quantityInCart*pricePound}</p>
                 </div>
                 <button class="carrito-producto-eliminar" id="${id}"><i class="bi bi-trash-fill"></i></button>
             `;

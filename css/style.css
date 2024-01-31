@@ -152,7 +152,7 @@
   justify-content: space-around;
   align-items: center;
   height: 100%;
-  background: #000;
+  background: #008000d7;
   color: white;
   opacity: 0;
 }
@@ -362,5 +362,37 @@
   color: #fff;
   border-radius: 5px;
 
+}
+
+.btn-navbar{
+  color: inherit;
+  background-color: transparent;
+  border: none;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* ajusta el ancho según tus necesidades */
+  background-color: #E8E3DC;
+/*   backdrop-filter: blur(20px); */
+  padding: 20px;
+  height: 100%;
+
+
+}
+
+.btn-exit{
+background-color: transparent;
+border: none;
+position: relative;
+top: 80px;
+left: 1400px;
+}
+.btn-exit img{
+  width: 100%;
 }
 

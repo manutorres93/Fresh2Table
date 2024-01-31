@@ -1,25 +1,12 @@
-const opcionHistorial= document.querySelector('#historial')
-const opcionPerfil =document.querySelector('#perfil')
+import { numeroCarrito, logout} from "./commonFunctions.js";
+
 
 /* Listeners */
 document.addEventListener("DOMContentLoaded", () => {
   saludar();
+  numeroCarrito()
 });
 
-/* Listeners para cambio en el css al darle al nombre perfil- historial de compras */
-opcionHistorial.addEventListener('click', ()=>{
-    opcionHistorial.classList.add("active");
-    opcionPerfil.classList.remove("active");
-    llenarHistorial()
-    
-})
-
-opcionPerfil.addEventListener('click', ()=>{
-    opcionHistorial.classList.remove("active");
-    opcionPerfil.classList.add("active");
-    saludar()
-    
-})
 
 /* Funciones */
 /* Función para llenar el perfil */
@@ -42,8 +29,10 @@ function saludar() {
  nombreTitulo.innerHTML=`<h1>${array.name}</h1>`
 }
 
+logout()
+
 /* Función para llenar el historial de compras */
-function llenarHistorial(){
+/* function llenarHistorial(){
     console.log('historial');
     const informacionHistorial = document.querySelector("#informacion-perfil");
     const saludoHistorial = document.querySelector("#titulo-principal");
@@ -51,20 +40,8 @@ function llenarHistorial(){
     saludoHistorial.innerHTML = `Historial de compras`
 
     informacionHistorial.innerHTML = `<p> No ha hecho ninguna compra </p>`
-}
+} */
 
 
-/* Logout */
-const user = JSON.parse(localStorage.getItem("login_success")) || false;
 
-if (user === false) {
-  window.location.href = "loginregister.html";
-}
 
-const logout = document.querySelector("#logout");
-
-logout.addEventListener("click", () => {
-  alert("Hasta pronto");
-  localStorage.removeItem("login_success");
-  window.location.href = "index.html";
-});
