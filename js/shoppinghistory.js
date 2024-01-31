@@ -109,7 +109,13 @@ function modalAcciones(arrayElementsBought) {
     modal.close();
   });
 
-  //let arrayElementsBought= userData.shopHistory[0].shop
+  llenarModal(arrayElementsBought)
+
+}
+
+
+function llenarModal(arrayElementsBought){
+
   const tTable = document.querySelector(".tbody");
 
   arrayElementsBought.forEach((element) => {
@@ -126,4 +132,5 @@ function modalAcciones(arrayElementsBought) {
             
   `;
   });
+
 }

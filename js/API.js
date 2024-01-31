@@ -40,3 +40,24 @@ export const createNewUser=async (user)=>{
 
 
 }
+
+//Función PUT 
+
+export const editUser=async (user)=>{
+
+    try {
+        
+        await fetch(url,{
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+    } catch (error) {
+        
+        console.log('Algo no salió bien');
+    }
+
+
+}
