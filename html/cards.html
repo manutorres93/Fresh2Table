@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="../css/cards.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 
-    <title>🥭 Frutas</title>
+    <title>Frutas</title>
 </head>
 
 <body>
 
-    <!--NAV-->
+    <!--------------NAV-------------->
     <header>
 
         <!-- Navbar  -->
@@ -28,7 +28,9 @@
             </div>
             <!-- Shop -->
             <div class="menu">
-                <a href="#"><img class="icono-selector-cart" src="../Img/cart-shopping.svg" width="50" alt=""></a>
+                <a href="#" class="icon-cart"><img class="icono-selector-cart" src="../Img/cart-shopping.svg" width="50" alt="">
+                <span id="numeroProductosEnCarrito">0</span>
+                </a>
             </div>
         </nav>
     </header>
@@ -42,10 +44,7 @@
         </div>
     </div>
     
-    <!--Vectores de busqueda-->
-    <div class="frutas-verduras">
-        <h1>FRUTAS Y VERDURAS</h1>
-    </div>
+    <!--------------VECTORES DE BÚSQUEDA-------------->
 
     <div class="img-buscadores">
         <div class="img-buscadores-container">
@@ -53,8 +52,6 @@
                 <a href="#"><img class="incono-selector fruits" src="../Img/iconoFruta.svg" width="95" alt="" srcset=""></a>
                 <h1 class="titulo-frutas">FRUTAS</h1>
             </div>
-
-
             
             <div class="icono-verdura">
                 <a href="#"><img class="incono-selector vegetables" src="../Img/iconoVerdura.svg" width="95" alt=""></a>
@@ -70,11 +67,11 @@
         
     </main>
 
-    <!--MODAL-->
+    <!--------------MODAL-------------->
 
     <div class="modal">
         <a href="#"><button class="close-button">Cerrar</button></a>
-        <!-- Contenido adicional del modal -->
+        
     </div>
 
     <script src="../js/products.json"></script>
