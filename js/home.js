@@ -1,5 +1,5 @@
 import { numeroCarrito, logout } from "./commonFunctions.js";
-import { editUser } from "./API.js";
+import { editUser, getUsersById } from "./API.js";
 
 const informacionPerfil = document.querySelector("#informacion-perfil");
 
@@ -21,25 +21,38 @@ function saludar() {
   const stringFormArray = localStorage.getItem("login_success");
   const array = JSON.parse(stringFormArray);
 
-  saludo.innerHTML = `Hola ${array.name}!`;
-
-  informacionPerfil.innerHTML = `
-            <p>Edad: ${array.age}</p>
-            <p>Cedula: ${array.id}</p>
-            <p>Correo electrónico: ${array.email}</p>
-            <p>Dirección: ${array.address}</p>
-
-            <button class="btn historial-acciones-detalles btn-abrir-modal" idUser="${array.id}">Editar datos</button>
-            `;
-
-  nombreTitulo.innerHTML = `<h1>${array.name}</h1>`;
-
   cedulaUSer = array.id;
   console.log(cedulaUSer);
+  
+  async function usuarioID() {
+    const dataUSer= await getUsersById(cedulaUSer)
+    console.log(dataUSer);
+    console.log(dataUSer.name);
 
-  modalAcciones();
+    saludo.innerHTML = `Hola ${dataUSer.name}!`;
 
-  informacionPerfil.addEventListener("click", cargarModal);
+    informacionPerfil.innerHTML = `
+              <p>Edad: ${dataUSer.age}</p>
+              <p>Cedula: ${dataUSer.id}</p>
+              <p>Correo electrónico: ${dataUSer.email}</p>
+              <p>Dirección: ${dataUSer.address}</p>
+  
+              <button class="btn historial-acciones-detalles btn-abrir-modal" idUser="${dataUSer.id}">Editar datos</button>
+              `;
+  
+    nombreTitulo.innerHTML = `<h1>${dataUSer.name}</h1>`;
+
+    modalAcciones();
+
+    informacionPerfil.addEventListener("click", cargarModal);
+    
+  }
+
+  usuarioID()
+
+
+  
+  
 }
 
 function modalAcciones() {
@@ -55,10 +68,12 @@ function modalAcciones() {
 
   btnCerrarModal.addEventListener("click", () => {
     modal.close();
+    saludar()
   });
 
   btnCerrarModalAux.addEventListener("click", () => {
     modal.close();
+    saludar()
   });
 }
 
@@ -75,6 +90,7 @@ async function getDataUserEdit(idUser) {
 
     getModalInformation(datos);
     guardarDatos(idUser,datos);
+    
   } catch (error) {}
 }
 
@@ -136,5 +152,9 @@ function guardarDatos(idUser, datos) {
     console.log(updateUser);
 
     editUser(updateUser, idUser);
+
+    saludar()
   });
+
+  
 }

@@ -18,6 +18,25 @@ export const getUsers= async()=>{
     }
 }
 
+//Función GETByID
+export const getUsersById= async(id)=>{
+    try {
+        const result = await fetch(`${url}/${id}`)
+        const usersData = await result.json()
+
+        const usersIsArray = Array.isArray(usersData) //? usersData : [];
+
+        console.log(usersIsArray);
+        console.log(usersData);
+
+      
+        return usersData
+    } catch (error) {
+        console.log('Algo no salió bien');
+        
+    }
+}
+
 //Funcion POST
 
 
