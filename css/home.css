@@ -296,6 +296,7 @@ main {
 
 .modal-title {
   margin: 0;
+  color: var(--clr-red);
 }
 
 .close-btn {
@@ -306,9 +307,43 @@ main {
   color: #555;
 }
 
-.modal-body {
-  padding-bottom: 16px;
+.btn-abrir-modal{
+  margin-top: 50px;
 }
+
+.modal-body {
+  padding: 15px;
+}
+
+.input-modal {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #ccc; /* Color del borde */
+  border-radius: 7px; /* Radio de borde para esquinas redondeadas */
+  transition: border-color 0.2s;
+}
+
+
+.input-modal:focus {
+  border-color: var(--clr-main); /* Cambia el color del borde al enfocar el input */
+  outline: none; /* Quita el contorno predeterminado del navegador */
+}
+
+
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.label-modal {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 700;
+  color: var(--clr-red);
+}
+
 
 .modal-footer {
   display: flex;
@@ -319,7 +354,7 @@ main {
   padding: 8px 16px;
   margin-left: 8px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: var(--clr-red);
   color: #fff;
   border: none;
   border-radius: 4px;

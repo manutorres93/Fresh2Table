@@ -1,4 +1,4 @@
-import { numeroCarrito, logout} from "./commonFunctions.js";
+import { numeroCarrito, logout } from "./commonFunctions.js";
 //import { editNewUser } from "./API.js";
 
 const informacionPerfil = document.querySelector("#informacion-perfil");
@@ -6,18 +6,18 @@ const informacionPerfil = document.querySelector("#informacion-perfil");
 /* Listeners */
 document.addEventListener("DOMContentLoaded", () => {
   saludar();
-  numeroCarrito()
+  numeroCarrito();
 });
 
-let cedulaUSer
+let cedulaUSer;
 /* Funciones */
 /* Función para llenar el perfil */
 
-logout()
+logout();
 
 function saludar() {
   const saludo = document.querySelector("#titulo-principal");
-  const nombreTitulo= document.querySelector('#titulo-card-perfil')
+  const nombreTitulo = document.querySelector("#titulo-card-perfil");
   const stringFormArray = localStorage.getItem("login_success");
   const array = JSON.parse(stringFormArray);
 
@@ -29,19 +29,17 @@ function saludar() {
             <p>Correo electrónico: ${array.email}</p>
             <p>Dirección: ${array.address}</p>
 
-            <button class="historial-acciones-detalles btn-abrir-modal" idUser="${array.id}">Ver más</button>
+            <button class="btn historial-acciones-detalles btn-abrir-modal" idUser="${array.id}">Editar datos</button>
             `;
 
- nombreTitulo.innerHTML=`<h1>${array.name}</h1>`
+  nombreTitulo.innerHTML = `<h1>${array.name}</h1>`;
 
- cedulaUSer=array.id
+  cedulaUSer = array.id;
   console.log(cedulaUSer);
 
-  modalAcciones()
+  modalAcciones();
 
   informacionPerfil.addEventListener("click", cargarModal);
-
- 
 }
 
 function modalAcciones() {
@@ -62,79 +60,69 @@ function modalAcciones() {
   btnCerrarModalAux.addEventListener("click", () => {
     modal.close();
   });
-
-
 }
 
-
 function cargarModal(iterador) {
- 
   const cedulaUsuario = iterador.target.getAttribute("idUser");
 
-  getDataUserEdit(cedulaUsuario)
-  
-
-} 
+  getDataUserEdit(cedulaUsuario);
+}
 
 async function getDataUserEdit(idUser) {
   try {
-    const response = await fetch(
-      `http://localhost:4000/usuarios/${idUser}`
-    ); //conexion al recurso
+    const response = await fetch(`http://localhost:4000/usuarios/${idUser}`); //conexion al recurso
     const datos = await response.json(); //consumo del recurso, datos es un array tipo JSON
-    
 
     getModalInformation(datos);
+    guardarDatos();
   } catch (error) {}
 }
 
-
 function getModalInformation(information) {
   const modalBody = document.querySelector(".modal-body");
-  const { name, age, email, address} = information;
+  const { name, age, email, address } = information;
+
+  modalBody.innerHTML = `
   
 
-  modalBody.innerHTML=`
-  <p>Información del usuario</p>
-
-  <label>Nombre:</label>
-  <input type="text" id="nombre" value="${name}">
-  <label>Cedula</label>
-  <input type="text" id="edad" value="${age}">
-  <label>Email:</label>
-  <input type="email" id="email" value="${email}">
-  <label>Dirección:</label>
-  <input type="text" id="direccion" value="${address}">
+  <div class="form-group">
+                <label class="label-modal" for="nombre">Nombre:</label>
+                <input class="input-modal" type="text" class="form-control" id="nombre" value="${name}">
+            </div>
+            <div class="form-group">
+                <label class="label-modal" for="edad">Cédula:</label>
+                <input class="input-modal" type="text" class="form-control" id="edad" value="${age}">
+            </div>
+            <div class="form-group">
+                <label class="label-modal" for="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">Email:</label>
+                <input class="input-modal" type="email" class="form-control" id="email" value="${email}">
+            </div>
+            <div class="form-group">
+                <label class="label-modal" for="direccion">Dirección:</label>
+                <input class="input-modal" type="text" class="form-control" id="direccion" value="${address}">
+            </div>
   
-  `
-guardarDatos()
+  `;
   
 }
 
 function guardarDatos() {
   // Obtener el valor del input
-  const inputNombre = document.getElementById('nombre');
-  const inputEdad = document.getElementById('edad');
-  const inputEmail = document.getElementById('email');
-  const inputDireccion = document.getElementById('direccion');
+  const inputNombre = document.getElementById("nombre");
+  const inputEdad = document.getElementById("edad");
+  const inputEmail = document.getElementById("email");
+  const inputDireccion = document.getElementById("direccion");
 
-  const btnGuardar = document.querySelector('#btn-guardar-modal');
- 
+  const btnGuardar = document.querySelector("#btn-guardar-modal");
 
-  btnGuardar.addEventListener('click',()=>{
+  btnGuardar.addEventListener("click", () => {
     const newValueName = inputNombre.value;
     const newValueAge = inputEdad.value;
     const newValueEmail = inputEmail.value;
     const newValueAddress = inputDireccion.value;
-    console.log('Se guardó el valor:', newValueName);
-    console.log('Se guardó el valor:', newValueAge);
-    console.log('Se guardó el valor:', newValueEmail);
-    console.log('Se guardó el valor:', newValueAddress);
-
-  })
-
+    console.log("Se guardó el valor:", newValueName);
+    console.log("Se guardó el valor:", newValueAge);
+    console.log("Se guardó el valor:", newValueEmail);
+    console.log("Se guardó el valor:", newValueAddress);
+  });
 }
-
-
-
-
