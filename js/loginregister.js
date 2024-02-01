@@ -1,6 +1,6 @@
 /* Importando usuarios de db desde la API */
 
-import { getUsers } from "./API.js";
+import { editUser, getUsers, getUsersById } from "./API.js";
 
 /* Para que se desplace el div de registro, creación de clase active que tiene las propiedades en el css*/
 
@@ -36,11 +36,10 @@ signupButton.addEventListener("click", () => {
 /* Cargar la db inicial que la traiga de json */
 let usersData;
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  bringUsers()
-  modalAcciones()
-
-} );
+document.addEventListener("DOMContentLoaded", () => {
+  bringUsers();
+  modalAcciones();
+});
 
 async function bringUsers() {
   console.log("holaaaa");
@@ -66,7 +65,7 @@ loginForm.addEventListener("submit", async (e) => {
   );
 
   console.log(userFound);
-  
+
   if (!userFound) {
     alert("Usuario y/o contraseña incorrectos");
   } else {
@@ -77,26 +76,102 @@ loginForm.addEventListener("submit", async (e) => {
   }
 });
 
-
 function modalAcciones() {
   /* Funcionalidad para el modal */
   const btnAbrirModal = document.querySelector(".btn-abrir-modal");
-  const btnCerrarModal = document.getElementById("btn-cerrar-modal");
   const btnCerrarModalAux = document.getElementById("btn-cerrar-modal-aux");
+  const btnValidarModal = document.getElementById("btn-validar-modal");
 
   btnAbrirModal.addEventListener("click", () => {
     const modal = document.getElementById("modal");
     modal.showModal();
   });
 
-  btnCerrarModal.addEventListener("click", () => {
-    modal.close();
-    saludar()
-  });
-
   btnCerrarModalAux.addEventListener("click", () => {
     modal.close();
-    saludar()
+  });
+
+  btnValidarModal.addEventListener("click", () => {
+    validarUsuario();
+  });
+}
+
+function validarUsuario() {
+  const secondModal = document.querySelector("#second-modal");
+  const btnCerrarModalAux = document.getElementById("btn-cerrar-modal-sec");
+
+  const idUser = document.querySelector("#id-modal").value;
+  const emailUser = document.querySelector("#email-modal").value;
+
+  console.log(idUser);
+  console.log(emailUser);
+
+  async function validateData() {
+    const dataUser = await getUsersById(idUser);
+
+    console.log(dataUser);
+
+    if (dataUser.email === emailUser && dataUser.id === idUser) {
+      console.log("Usuario encontrado:", dataUser);
+      secondModal.showModal();
+      
+
+      btnCerrarModalAux.addEventListener("click", () => {
+        secondModal.close();
+      });
+    } else if (dataUser === undefined) {
+      alert("La cédula está incorrecta");
+    } else {
+      alert(
+        "El documento está en nuestra base de datos pero no coincide con el correo"
+      );
+    }
+  }
+
+  validateData();
+
+
+  changePassword(idUser)
+
+  
+}
+
+
+async function changePassword(idUser) {
+  
+  const dataUser = await getUsersById(idUser);
+
+  console.log(dataUser);
+  
+  const btnChangePass = document.querySelector("#btn-modificar-modal");
+
+  btnChangePass.addEventListener("click", () => {
+    const newPass = document.querySelector("#new-password-modal").value;
+    const newPassConf = document.querySelector("#new-password-modal-conf").value;
+
+   if (newPass===newPassConf) {
+
+    const updateUser = {
+      name: dataUser.name,
+      email: dataUser.email,
+      age: dataUser.age,
+      address: dataUser.address,
+      password: newPass,
+      shopHistory:dataUser.shopHistory
+    };
+
+    editUser(updateUser,idUser)
+
+
+
+    alert('La contraseña ha sido cambiada')
+
+    
+   }else{
+    alert('Las contraseñas son diferentes')
+   }
+
+    // Realizar las operaciones necesarias con las contraseñas aquí
   });
 }
 
