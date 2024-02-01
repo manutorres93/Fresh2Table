@@ -1,5 +1,5 @@
 import { numeroCarrito, logout } from "./commonFunctions.js";
-//import { editNewUser } from "./API.js";
+import { editUser } from "./API.js";
 
 const informacionPerfil = document.querySelector("#informacion-perfil");
 
@@ -74,7 +74,7 @@ async function getDataUserEdit(idUser) {
     const datos = await response.json(); //consumo del recurso, datos es un array tipo JSON
 
     getModalInformation(datos);
-    guardarDatos();
+    guardarDatos(idUser,datos);
   } catch (error) {}
 }
 
@@ -103,10 +103,9 @@ function getModalInformation(information) {
             </div>
   
   `;
-  
 }
 
-function guardarDatos() {
+function guardarDatos(idUser, datos) {
   // Obtener el valor del input
   const inputNombre = document.getElementById("nombre");
   const inputEdad = document.getElementById("edad");
@@ -124,5 +123,18 @@ function guardarDatos() {
     console.log("Se guardó el valor:", newValueAge);
     console.log("Se guardó el valor:", newValueEmail);
     console.log("Se guardó el valor:", newValueAddress);
+
+    const updateUser = {
+      name: newValueName,
+      email: newValueEmail,
+      age: newValueAge,
+      address: newValueAddress,
+      password: datos.password,
+      shopHistory:datos.shopHistory
+    };
+
+    console.log(updateUser);
+
+    editUser(updateUser, idUser);
   });
 }
