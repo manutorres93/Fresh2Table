@@ -36,7 +36,11 @@ signupButton.addEventListener("click", () => {
 /* Cargar la db inicial que la traiga de json */
 let usersData;
 
-document.addEventListener("DOMContentLoaded", bringUsers);
+document.addEventListener("DOMContentLoaded", ()=>{
+  bringUsers()
+  modalAcciones()
+
+} );
 
 async function bringUsers() {
   console.log("holaaaa");
@@ -72,6 +76,30 @@ loginForm.addEventListener("submit", async (e) => {
     window.location.href = "home.html";
   }
 });
+
+
+function modalAcciones() {
+  /* Funcionalidad para el modal */
+  const btnAbrirModal = document.querySelector(".btn-abrir-modal");
+  const btnCerrarModal = document.getElementById("btn-cerrar-modal");
+  const btnCerrarModalAux = document.getElementById("btn-cerrar-modal-aux");
+
+  btnAbrirModal.addEventListener("click", () => {
+    const modal = document.getElementById("modal");
+    modal.showModal();
+  });
+
+  btnCerrarModal.addEventListener("click", () => {
+    modal.close();
+    saludar()
+  });
+
+  btnCerrarModalAux.addEventListener("click", () => {
+    modal.close();
+    saludar()
+  });
+}
+
 
 /* Para la base de datos con localStorage, para el registro*/
 
