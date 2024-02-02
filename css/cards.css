@@ -1,5 +1,5 @@
 
-
+@import url(Layout.css);
 
 body {
   background-color: #e8e3dc;
@@ -11,17 +11,17 @@ body {
 
 
 /*---------------------NAV-------------------------*/
-header{
+/* header{
   width: 100%;
   box-sizing: border-box;
   text-transform: uppercase;
   font-weight: bold;
   height: 5.3rem;
-  /* modificaciones */
+  modificaciones 
 }
 
 .navbar{
-  z-index: 1000; /*Colocar el navbar siempre arriba de todo*/
+  z-index: 1000; Colocar el navbar siempre arriba de todo
   position: fixed;
   width: 100%;
   background-color: #008000;
@@ -55,11 +55,11 @@ header{
   color: black;
 }
 
+*/
+
 h2{
   color: #453633;
 }
-
-
 /*--------------------BUSCADORES--------------------------*/
 .frutas-verduras{
   text-align: center;
@@ -67,7 +67,7 @@ h2{
 }
 
 .search{
-  margin-top: 2rem;
+  padding-top: 6rem;
 }
 
 .search-container{
