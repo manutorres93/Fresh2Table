@@ -74,7 +74,7 @@
       {
         "name": "zanahoria",
         "id": 9,
-        "image": "pera.png",
+        "image": "zanahoria.png",
         "pricePound": 150000,
         "category": "verduras",
         "from": "Barbosa",
