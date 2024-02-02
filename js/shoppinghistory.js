@@ -109,21 +109,28 @@ function modalAcciones(arrayElementsBought) {
     modal.close();
   });
 
-  //let arrayElementsBought= userData.shopHistory[0].shop
-  const tTable = document.querySelector(".table");
+  llenarModal(arrayElementsBought)
+
+}
+
+
+function llenarModal(arrayElementsBought){
+
+  const tTable = document.querySelector(".tbody");
 
   arrayElementsBought.forEach((element) => {
-    const { name, quantity } = element;
+    const { name, quantity,image } = element;
 
     console.log(name);
     tTable.innerHTML += `
    
             <tr>
-            <td>${name}</td>
+            <td><img  src="/Img/Frutas/${image}" width="50px" /></td>
             <td>${name}</td>
             <td>${quantity}</td>
             </tr>
             
   `;
   });
+
 }

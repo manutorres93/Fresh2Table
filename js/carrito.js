@@ -146,7 +146,7 @@ function vaciarCarrito(){
 
 function actualizarTotal(){
 
-    const totalCalculado= products_cart.reduce((acc, product)=> acc+ (product.pricePound*product.quantity),0 )
+    const totalCalculado= products_cart.reduce((acc, product)=> acc+ (product.pricePound*product.quantityInCart),0 )
 
     total.innerText= `$${totalCalculado}`
 }

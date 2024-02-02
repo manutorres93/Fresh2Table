@@ -86,62 +86,43 @@
           </div>
         </div>
         <div class="contenedor-modal">
-          <!-- Modal -->
-    <!--       <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">
-                    Modal title
-                  </h1>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">...</div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-primary">
-                    Save changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div> -->
+         
           <dialog id="modal" class="centrado-modal">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Modal Title</h2>
-                    <button id="btn-cerrar-modal" class="close-btn btn-cerrar-modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <p>Contenido del modal aquí...</p>
-                </div>
-                <div class="modal-footer">
-                    <button id="btn-cerrar-modal-aux" class="btn-cerrar-modal btn btn-secondary">Cerrar</button>
-                    <!-- Otros botones de acción si es necesario -->
-                </div>
-            </div>
-        </dialog>
-        
-       
-        
+              <div class="modal-header">
+                <h2 class="modal-title">Información de la compra</h2>
+                <button
+                  id="btn-cerrar-modal"
+                  class="close-btn btn-cerrar-modal"
+                >
+                  &times;
+                </button>
+              </div>
+              <div class="modal-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>NOMBRE PRODUCTO</th>
+                      <th>CANTIDAD</th>
+                    </tr>
+                  </thead>
+                  <tbody class="tbody">
 
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button
+                  id="btn-cerrar-modal-aux"
+                  class="btn-cerrar-modal btn btn-secondary"
+                >
+                  Cerrar
+                </button>
+                <!-- Otros botones de acción si es necesario -->
+              </div>
+            </div>
+          </dialog>
         </div>
       </main>
     </div>

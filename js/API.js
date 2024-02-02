@@ -18,6 +18,25 @@ export const getUsers= async()=>{
     }
 }
 
+//Función GETByID
+export const getUsersById= async(id)=>{
+    try {
+        const result = await fetch(`${url}/${id}`)
+        const usersData = await result.json()
+
+        const usersIsArray = Array.isArray(usersData) //? usersData : [];
+
+        console.log(usersIsArray);
+        console.log(usersData);
+
+      
+        return usersData
+    } catch (error) {
+        console.log('Algo no salió bien');
+        
+    }
+}
+
 //Funcion POST
 
 
@@ -33,6 +52,28 @@ export const createNewUser=async (user)=>{
                 'Content-Type': 'application/json'
             }
         });
+    } catch (error) {
+        
+        console.log('Algo no salió bien');
+    }
+
+
+}
+
+//Función PUT 
+
+export const editUser=async (user,id)=>{
+
+    try {
+        
+        await fetch(`${url}/${id}`,{
+            method: 'PUT',
+            body: JSON.stringify(user),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+        
     } catch (error) {
         
         console.log('Algo no salió bien');

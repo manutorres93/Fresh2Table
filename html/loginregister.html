@@ -32,7 +32,7 @@
                 
                 <input type="email" placeholder="Correo electrónico" id="email-login" required autofocus>
                 <input type="password" placeholder="Contraseña" id="password-login" required >
-                <a href="#">Olvidé mi contraseña</a>
+                <a class="btn-abrir-modal" href="#">Olvidé mi contraseña</a>
                 <button type="submit" class="btn-submit">Iniciar sesión</button>
             </form>
         </div>
@@ -62,6 +62,65 @@
                 <button type="submit" class="btn-submit">Registrarse</button>
             </form>
         </div>
+
+                <!-- Modal 1 -->
+
+                <dialog id="modal" class="centrado-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Editar información</h2>
+                            <button id="btn-cerrar-modal" class="close-btn">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="label-modal" for="nombre">Correo electrónico:</label>
+                                <input class="input-modal" type="text" class="form-control" id="email-modal">
+                            </div>
+                            <div class="form-group">
+                                <label class="label-modal" for="edad">Cédula:</label>
+                                <input class="input-modal" type="text" class="form-control" id="id-modal">
+                            </div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btn-validar-modal" class="btn btn-secondary">Validar</button>
+                            
+                            <button id="btn-cerrar-modal-aux" class="btn btn-secondary">Cancelar</button>
+                        </div>
+                    </div>
+                </dialog>
+                <!-- Fin modal -->
+
+                 <!-- Modal 2 -->
+
+                 <dialog id="second-modal" class="centrado-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Modificar contraseña</h2>
+                            <button id="btn-cerrar-modal" class="close-btn">&times;</button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label class="label-modal" >Constraseña nueva:</label>
+                                <input class="input-modal" type="text" class="form-control" id="new-password-modal">
+                            </div>
+                            <div class="form-group">
+                                <label class="label-modal" >Repita constraseña nueva:</label>
+                                <input class="input-modal" type="text" class="form-control" id="new-password-modal-conf">
+                            </div>
+                           
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btn-modificar-modal" class="btn btn-secondary">Modificar</button>
+                            
+                            <button id="btn-cerrar-modal-sec" class="btn btn-secondary">Cancelar</button>
+                        </div>
+                    </div>
+                </dialog>
+                <!-- Fin modal -->
+                 
 
 
     </div>
