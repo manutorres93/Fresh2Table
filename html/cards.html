@@ -17,23 +17,23 @@
 
         <!-- Navbar  -->
         <nav class="navbar">
-            <!-- Menu -->
-            <div class="menu">
-                <img class="icono-selector-menu" src="../Img/menu.svg" width="50" height="" alt="">
-            </div>
-            <!-- Logo -->
-            <div class="logo-header">
-                <a href="#"><img class="icono-selector" src="../Img/Fresh.svg" alt="" /></a>
-
-            </div>
-            <!-- Shop -->
-            <div class="menu">
-                <a href="#" class="icon-cart"><img class="icono-selector-cart" src="../Img/cart-shopping.svg" width="50" alt="">
-                <span id="numeroProductosEnCarrito">0</span>
-                </a>
-            </div>
+          <!-- Menu -->
+          <div class="menu">
+            <img src="../Img/menu.svg" alt="">
+          </div>
+          <!-- Logo -->
+          <div class="logo-header">
+            <a href=""><img src="../Img/Fresh.svg" alt="" /></a>
+    
+          </div>
+          <!-- Shop -->
+          <div class="menu">
+            <img  class="icono-selector-cart"src="../Img/car-shopping.svg" alt="">
+            <span id="numeroProductosEnCarrito">0</span>
+          </div>
         </nav>
-    </header>
+      </header>
+
 
     <!--------------BUSCADOR-------------->
 
@@ -49,12 +49,12 @@
     <div class="img-buscadores">
         <div class="img-buscadores-container">
             <div class="icono-fruta">
-                <a href="#"><img class="incono-selector fruits" src="../Img/iconoFruta.svg" width="95" alt="" srcset=""></a>
+                <img class="incono-selector fruits" src="../Img/iconoFruta.svg" width="95" alt="" srcset="">
                 <h1 class="titulo-frutas">FRUTAS</h1>
             </div>
             
             <div class="icono-verdura">
-                <a href="#"><img class="incono-selector vegetables" src="../Img/iconoVerdura.svg" width="95" alt=""></a>
+                <img class="incono-selector vegetables" src="../Img/iconoVerdura.svg" width="95" alt="">
                 <h1 class="titulo-verduras">VERDURAS</h1>
             </div>
             
@@ -69,9 +69,13 @@
 
     <!--------------MODAL-------------->
 
-    <div class="modal">
-        <a href="#"><button class="close-button">Cerrar</button></a>
+    <div class="modalContainerMain">
+        <button class="close-button">Cerrar</button>
         
+        <h1 style="color: black;">Carrito</h1>
+        <div class="modalContent">
+
+        </div>
     </div>
 
     <script src="../js/products.json"></script>

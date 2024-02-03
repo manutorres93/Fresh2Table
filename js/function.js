@@ -26,11 +26,14 @@ const iconSelectorVegetables = document.querySelector('.vegetables');
 const iconSelectorFruits = document.querySelector('.fruits');
 const titleVegetables = document.querySelector('.titulo-verduras');
 const titleFruits = document.querySelector('.titulo-frutas');
-const productsInCart = [];
 const numbersProductsInCart = document.querySelector('#numeroProductosEnCarrito');
+const modal = document.querySelector('.modalContainerMain');
+const closeButton = document.querySelector('.close-button');
+const modalContent = document.querySelector('.modalContent');
 let buttonsAddCart = document.querySelectorAll('.buttonsAddCart'); // STEP 1 (Carrito) - Crear una variable para el boton de agregar al carrito
-let dataProducts = '';
 
+const productsInCart = [];
+let dataProducts = '';
 
 /*---------------INYECTAR LAS CARDS--------------- */
 function showProducts(products) {
@@ -46,7 +49,7 @@ function showProducts(products) {
         <div class="separador">
             <div class="image">
                 <figure>
-                    <img src="../Img/Frutas/${product.image}" alt="">
+                    <img src="../Img/frutasyverduras/${product.image}" alt="">
                 </figure>
             </div>
             
@@ -149,7 +152,7 @@ function showFoodFiltered(produtsToShow) {
         <div class="separador">
             <div class="image">
                 <figure>
-                    <img src="../Img/Frutas/${product.image}" alt="">
+                    <img src="../Img/frutasyverduras/${product.image}" alt="">
                 </figure>
             </div>
             
@@ -182,8 +185,7 @@ function showFoodFiltered(produtsToShow) {
     updateButtonAdd(); // STEP 3 (Carrito) - Llamar la función despues del forEach para que actualice el selector de botones siempre que la pagina cargue de nuevo
 };
 
-iconSelectorFruits.addEventListener('click', function (e) {
-    e.preventDefault();
+iconSelectorFruits.addEventListener('click', function () {
     iconSelectorVegetables.style = "background-color:none";
     iconSelectorFruits.style = "filter: invert(19%) sepia(99%) saturate(4976%) hue-rotate(112deg) brightness(99%) contrast(104%);";
     titleFruits.style = "color: #008000";
@@ -191,8 +193,7 @@ iconSelectorFruits.addEventListener('click', function (e) {
     filterByCategory('frutas');
 });
 
-iconSelectorVegetables.addEventListener('click',function (e) {
-    e.preventDefault();
+iconSelectorVegetables.addEventListener('click',function () {
     iconSelectorFruits.style = "background-color:none";
     iconSelectorVegetables.style = "filter: invert(19%) sepia(99%) saturate(4976%) hue-rotate(112deg) brightness(99%) contrast(104%);";
     titleVegetables.style = "color: #008000";
@@ -203,10 +204,7 @@ iconSelectorVegetables.addEventListener('click',function (e) {
 
 /*---------------MODAL CARRITO DE COMPRAS---------------*/
 
-iconSelectorCart.addEventListener('click', function (e) {
-    e.preventDefault();
-    const modal = document.querySelector('.modal');
-    const closeButton = document.querySelector('.close-button');
+iconSelectorCart.addEventListener('click', function () {
   
     function openModal() {
         modal.style.display = 'block';
@@ -235,6 +233,9 @@ function updateButtonAdd() { // STEP 2 (Carrito) - Crear la funcion donde indica
 };
 
 function addToCart(event) { // STEP 5 (Carrito) - Crear la funcion
+    
+
+
     const idButton = event.currentTarget.id; // STEP 6 (Carrito) - Aqui se guarda el ID del evento (click) en la variable idButton, esto para igualar el id del producto cuando le damos click
     let productAdded = '';
 
@@ -245,7 +246,6 @@ function addToCart(event) { // STEP 5 (Carrito) - Crear la funcion
     const index = productsInCart.findIndex( product => product.id == idButton); // STEP 10 (Carrito) - Guardamos en la varianle el index del array del producto que la persona seleccionó (lo que seleccione de primero será el index 0 y asi secesivamente)
     productsInCart[index].quantityInCart++; // STEP 11 (Carrito) - A productos en el carrito, en la posicion del index correspndiente, se le sumará cadavez que se haga click en agregar al carrito
 
-
    } else {
     productAdded.quantityInCart = 1; // STEP 9 (Carrito) - Le agregamos la propiedad de cantidad para que cuantificar cuantos de esos productos esta agregando al carrito
     productsInCart.push(productAdded);
@@ -253,13 +253,45 @@ function addToCart(event) { // STEP 5 (Carrito) - Crear la funcion
    };
 
    updateNumbersInCart();
-
-   localStorage.setItem('products_cart', JSON.stringify(productsInCart))
+   
+   console.log(productsInCart);
+   
+   localStorage.setItem('products_cart', JSON.stringify(productsInCart));
+   
+//    productsInCart.forEach(i => {
+//     console.log('---------------------------------------------------------------');
+//     console.log(i);
+//     console.log('UNO MAS');
+//     })
+   createContentModal();
 };
 
 function updateNumbersInCart() {
     let newNumberCart = productsInCart.reduce((accumulator, product) => accumulator + product.quantityInCart, 0);
-    console.log(newNumberCart);
+    //console.log(newNumberCart);
 
     numbersProductsInCart.innerHTML = newNumberCart;
+};
+
+function createContentModal() {
+    
+    modalContent.innerHTML=''
+    
+    const modalContent = document.createElement('div');
+    
+    productsInCart.forEach((i) => {
+        
+        const {name,quantityInCart}=i
+
+
+        //console.log(i);
+        
+        const productElement = document.createElement('p');
+
+        productElement.textContent = `${name} - Cantidad: ${quantityInCart}`;
+
+        modalContent.appendChild(productElement);
+    })
+    
+    modalContent.appendChild(productElement)
 }

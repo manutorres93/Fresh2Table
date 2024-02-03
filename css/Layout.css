@@ -12,7 +12,8 @@
   header {
     position: fixed;
     width: 100%;
-    display: none;
+/*     display: none; */
+    background-color: #008000;
   }
   
   .navbar {
