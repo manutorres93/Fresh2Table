@@ -140,13 +140,15 @@ function guardarDatos(idUser, datos) {
     console.log("Se guardó el valor:", newValueEmail);
     console.log("Se guardó el valor:", newValueAddress);
 
+    const shopHistory = datos.shopHistory || [];
+
     const updateUser = {
       name: newValueName,
       email: newValueEmail,
       age: newValueAge,
       address: newValueAddress,
       password: datos.password,
-      shopHistory:datos.shopHistory
+      shopHistory:shopHistory
     };
 
     console.log(updateUser);
