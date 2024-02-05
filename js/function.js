@@ -1,25 +1,24 @@
 /*---------------CARGAR LA BASE DE DATOS--------------- */
-
+let productsInCart = [];
 document.addEventListener('DOMContentLoaded', () => {
     // Cargar el archivo JSON
     fetch('../js/products.json')
     .then(response => {return response.json()})
     .then(data => {
+        const storedCart = JSON.parse(localStorage.getItem('products_cart')) || [];
+
+        // Inicializar productsInCart con los datos del LocalStorage o un array vacío
+        productsInCart = storedCart;
+
         // Llamar a la función showProducts con los datos cargados
-        
-        const products_cart = JSON.parse(localStorage.getItem('products_cart'));
-        
-        console.log(products_cart);
-        if (products_cart) {
-            
-            showProducts(data);
-            dataProducts = data;
-        }
+        showProducts(data);
+        dataProducts = data;
+
     })
     .catch(error => console.error('Error cargando el archivo JSON:', error));
 
-});
 
+});
 
 /*---------------VARIABLES Y SELECTORES---------------*/
 
@@ -42,8 +41,8 @@ const modalContainerMain = document.querySelector('.modalContainerMain');
 const totalPrice = document.querySelector('.totalPrice')
 let buttonsAddCart = document.querySelectorAll('.buttonsAddCart'); // STEP 1 (Carrito) - Crear una variable para el boton de agregar al carrito
 
-const productsInCart = [];
-let dataProducts = '';
+
+let dataProducts;
 
 /*---------------INYECTAR LAS CARDS--------------- */
 function showProducts(products) {
@@ -254,16 +253,18 @@ function addToCart(event) { // STEP 5 (Carrito) - Crear la funcion
     const index = productsInCart.findIndex( product => product.id == idButton); // STEP 10 (Carrito) - Guardamos en la varianle el index del array del producto que la persona seleccionó (lo que seleccione de primero será el index 0 y asi secesivamente)
     productsInCart[index].quantityInCart++; // STEP 11 (Carrito) - A productos en el carrito, en la posicion del index correspndiente, se le sumará cadavez que se haga click en agregar al carrito
 
+    localStorage.setItem('products_cart', JSON.stringify(productsInCart));
 } else {
     productAdded.quantityInCart = 1; // STEP 9 (Carrito) - Le agregamos la propiedad de cantidad para que cuantificar cuantos de esos productos esta agregando al carrito
     productsInCart.push(productAdded);
     
+    localStorage.setItem('products_cart', JSON.stringify(productsInCart));
 };
 
+localStorage.setItem('products_cart', JSON.stringify(productsInCart));  
     updateNumbersInCart();
 
     //console.log(productsInCart);
-    localStorage.setItem('products_cart', JSON.stringify(productsInCart));
 
 
    createContentModal();
