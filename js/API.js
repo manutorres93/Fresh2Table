@@ -33,6 +33,7 @@ export const getUsersById= async(id)=>{
         return usersData
     } catch (error) {
         console.log('Algo no salió bien');
+        alert('La cédula ingresada no está en nuestra base de datos')
         
     }
 }
