@@ -86,7 +86,7 @@
     "image": "pitahaya.png",
     "pricePound": 18000,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "Rionegro",
     "description": "Pitahaya exótica y llena de sabor"
   },
   {
@@ -95,7 +95,7 @@
     "image": "lulo.png",
     "pricePound": 12000,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "Santa Rosa",
     "description": "Lulo tropical y refrescante"
   },
   {
@@ -104,7 +104,7 @@
     "image": "papaya.png",
     "pricePound": 10500,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "La Ceja",
     "description": "Papaya jugosa y saludable"
   },
   {
@@ -113,7 +113,7 @@
     "image": "aguacate.png",
     "pricePound": 15000,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "Guatapé",
     "description": "Aguacate fresco y cremoso"
   },
   {
@@ -122,7 +122,7 @@
     "image": "maracuya.png",
     "pricePound": 16000,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "Carmen de Viboral",
     "description": "Maracuyá tropical y lleno de pasión"
   },
   {
@@ -131,7 +131,7 @@
     "image": "guanabana.png",
     "pricePound": 17000,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "El Santuario",
     "description": "Guanábana suave y deliciosa"
   },
   {
@@ -140,7 +140,7 @@
     "image": "curuba.png",
     "pricePound": 13000,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "Sonson",
     "description": "Curuba exótica y llena de sabor"
   },
   {
@@ -149,7 +149,7 @@
     "image": "ciruela.png",
     "pricePound": 11000,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "Guarne",
     "description": "Ciruela jugosa y dulce"
   },
   {
@@ -158,7 +158,7 @@
     "image": "tomatearbol.png",
     "pricePound": 6500,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "El Penol",
     "description": "Tomate de árbol fresco y nutritivo"
   },
   {
@@ -167,7 +167,7 @@
     "image": "tomate.png",
     "pricePound": 3500,
     "category": "verduras",
-    "from": "Barbosa",
+    "from": "San Vicente",
     "description": "Tomate rojo y jugoso"
   },
   {
@@ -176,7 +176,7 @@
     "image": "cebolla.png",
     "pricePound": 2800,
     "category": "verduras",
-    "from": "Barbosa",
+    "from": "Rionegro",
     "description": "Cebolla fresca y aromática"
   },
   {
@@ -185,7 +185,7 @@
     "image": "cebolla de rama.png",
     "pricePound": 3200,
     "category": "verduras",
-    "from": "Barbosa",
+    "from": "La Union",
     "description": "Cebolla de rama crujiente y deliciosa"
   },
   {
@@ -194,7 +194,7 @@
     "image": "habichuela.png",
     "pricePound": 4200,
     "category": "verduras",
-    "from": "Barbosa",
+    "from": "San Rafael",
     "description": "Habichuela tierna y nutritiva"
   },
   {
@@ -203,7 +203,79 @@
     "image": "uva.png",
     "pricePound": 12000,
     "category": "frutas",
-    "from": "Barbosa",
+    "from": "El Carmen",
     "description": "Uvas frescas y jugosas"
+  },
+  {
+    "name": "espinaca",
+    "id": 24,
+    "image": "espinaca.png",
+    "pricePound": 12000,
+    "category": "verduras",
+    "from": "Guatape",
+    "description": "Espinaca fresca y nutritiva"
+  },
+  {
+    "name": "lechuga",
+    "id": 25,
+    "image": "lechuga.png",
+    "pricePound": 12000,
+    "category": "verduras",
+    "from": "Abejorral",
+    "description": "Lechuga crujiente y saludable"
+  },
+  {
+    "name": "brocoli",
+    "id": 26,
+    "image": "brocoli.png",
+    "pricePound": 12000,
+    "category": "verduras",
+    "from": "El Retiro",
+    "description": "Brócoli fresco y nutritivo"
+  },
+  {
+    "name": "remolacha",
+    "id": 27,
+    "image": "remolacha.png",
+    "pricePound": 12000,
+    "category": "verduras",
+    "from": "Sabaneta",
+    "description": "Remolacha jugosa y dulce"
+  },
+  {
+    "name": "guisantes",
+    "id": 28,
+    "image": "guisantes.png",
+    "pricePound": 12000,
+    "category": "verduras",
+    "from": "La Estrella",
+    "description": "Guisantes frescos y deliciosos"
+  },
+  {
+    "name": "pepino",
+    "id": 29,
+    "image": "pepino.png",
+    "pricePound": 12000,
+    "category": "verduras",
+    "from": "Copacabana",
+    "description": "Pepino crujiente y refrescante"
+  },
+  {
+    "name": "ajo",
+    "id": 30,
+    "image": "ajo.png",
+    "pricePound": 12000,
+    "category": "verduras",
+    "from": "Envigado",
+    "description": "Ajo fresco y aromático"
+  },
+  {
+    "name": "berenjena",
+    "id": 31,
+    "image": "berenjena.png",
+    "pricePound": 12000,
+    "category": "verduras",
+    "from": "Itagüi",
+    "description": "Berenjena jugosa y deliciosa"
   }
 ]
