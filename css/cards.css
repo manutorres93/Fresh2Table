@@ -13,6 +13,9 @@ h2{
   color: #453633;
 }
 
+#numeroProductosEnCarrito{
+  color: white;
+}
 
 /*--------------------BUSCADORES--------------------------*/
 
@@ -174,6 +177,10 @@ p {
 .header-modal{
   display: grid;
   grid-template-columns: auto auto;
+}
+
+.containerPriceModal{
+  margin-top: 20px;
 }
 
 .close-button{

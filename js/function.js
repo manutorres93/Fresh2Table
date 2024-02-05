@@ -6,10 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => {return response.json()})
     .then(data => {
         // Llamar a la función showProducts con los datos cargados
-        showProducts(data);
-        dataProducts = data;
+        
+        const products_cart = JSON.parse(localStorage.getItem('products_cart'));
+        
+        console.log(products_cart);
+        if (products_cart) {
+            
+            showProducts(data);
+            dataProducts = data;
+        }
     })
     .catch(error => console.error('Error cargando el archivo JSON:', error));
+
 });
 
 
@@ -246,20 +254,20 @@ function addToCart(event) { // STEP 5 (Carrito) - Crear la funcion
     const index = productsInCart.findIndex( product => product.id == idButton); // STEP 10 (Carrito) - Guardamos en la varianle el index del array del producto que la persona seleccionó (lo que seleccione de primero será el index 0 y asi secesivamente)
     productsInCart[index].quantityInCart++; // STEP 11 (Carrito) - A productos en el carrito, en la posicion del index correspndiente, se le sumará cadavez que se haga click en agregar al carrito
 
-   } else {
+} else {
     productAdded.quantityInCart = 1; // STEP 9 (Carrito) - Le agregamos la propiedad de cantidad para que cuantificar cuantos de esos productos esta agregando al carrito
     productsInCart.push(productAdded);
+    
+};
 
-   };
+    updateNumbersInCart();
 
-   updateNumbersInCart();
-   
-   //console.log(productsInCart);
-   
-   localStorage.setItem('products_cart', JSON.stringify(productsInCart));
+    //console.log(productsInCart);
+    localStorage.setItem('products_cart', JSON.stringify(productsInCart));
+
 
    createContentModal();
-   actualizarTotal();
+   updateTotal();
 };
 
 function updateNumbersInCart() {
@@ -323,7 +331,8 @@ function add() {
     };
 
     createContentModal();
-    actualizarTotal()
+    updateTotal();
+    updateNumbersInCart();
     //console.log(productsInCart);
 }
 
@@ -332,19 +341,26 @@ function subtract() {
     const productInCart = productsInCart[index];
 
     if (productInCart) {
-        productInCart.quantityInCart--; 
+        productInCart.quantityInCart--;
+
+        if (productInCart.quantityInCart <= 0) {
+            productsInCart.splice(productInCart, 1);
+        };
+        
         localStorage.setItem('products_cart', JSON.stringify(productsInCart));
     };
 
     createContentModal();
-    actualizarTotal()
+    updateTotal();
+    updateNumbersInCart();
     //console.log(productsInCart);
 }
 
 
-function actualizarTotal(){
+function updateTotal(){
 
-    const totalCalculado = productsInCart.reduce((acc, product)=> acc+ (product.pricePound*product.quantityInCart),0 )
+    const totalCalculado = productsInCart.reduce( (accumulator, product) => accumulator+ (product.pricePound*product.quantityInCart), 0 );
 
-    totalPrice.innerText= `$${totalCalculado}`
-}
+    totalPrice.innerText = `Valor de la compra: $${totalCalculado}`;
+};
+
