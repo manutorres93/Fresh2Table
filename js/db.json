@@ -73,6 +73,15 @@
           "date": "2024-01-29"
         }
       ]
+    },
+    {
+      "name": "Valentina",
+      "email": "valentina@gmail.com",
+      "age": "24",
+      "address": "7890",
+      "password": "123",
+      "shopHistory": [],
+      "id": "1234"
     }
   ]
 }
