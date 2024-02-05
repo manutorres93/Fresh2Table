@@ -1,83 +1,209 @@
 [
-    {
-        "name": "manzana",
-        "id": 1,
-        "image": "manzana.png",
-        "pricePound": 3000,
-        "category": "frutas",
-        "from": "Rionegro",
-        "description": "Tampoco tiene potaxio"
-      },
-      {
-        "name": "sandia",
-        "id": 2,
-        "image": "sandia.png",
-        "pricePound": 10000,
-        "category": "frutas",
-        "from": "El Retiro",
-        "description": "No tiene potaxio"
-      },
-      {
-        "name": "fresa",
-        "id": 3,
-        "image": "fresa.png",
-        "pricePound": 5200,
-        "category": "frutas",
-        "from": "Rionegro",
-        "description": "Tampoco tiene potaxio"
-      },
-      {
-        "name": "banano",
-        "id": 4,
-        "image": "banano.png",
-        "pricePound": 150000,
-        "category": "frutas",
-        "from": "Barbosa",
-        "description": "Tiene potaxio"
-      },
-      {
-        "name": "cereza",
-        "id": 5,
-        "image": "cereza.png",
-        "pricePound": 150000,
-        "category": "frutas",
-        "from": "Barbosa",
-        "description": "No tiene potaxio"
-      },
-      {
-        "name": "melon",
-        "id": 6,
-        "image": "melon.png",
-        "pricePound": 150000,
-        "category": "frutas",
-        "from": "Barbosa",
-        "description": "No tiene potaxio"
-      },
-      {
-        "name": "mango",
-        "id": 7,
-        "image": "mango.png",
-        "pricePound": 150000,
-        "category": "frutas",
-        "from": "Barbosa",
-        "description": "No tiene potaxio"
-      },
-      {
-        "name": "pera",
-        "id": 8,
-        "image": "pera.png",
-        "pricePound": 150000,
-        "category": "frutas",
-        "from": "Barbosa",
-        "description": "No tiene potaxio"
-      },
-      {
-        "name": "zanahoria",
-        "id": 9,
-        "image": "zanahoria.png",
-        "pricePound": 150000,
-        "category": "verduras",
-        "from": "Barbosa",
-        "description": "No tiene potaxio"
-      }
+  {
+    "name": "manzana",
+    "id": 1,
+    "image": "manzana.png",
+    "pricePound": 3000,
+    "category": "frutas",
+    "from": "Rionegro",
+    "description": "Tampoco tiene potaxio"
+  },
+  {
+    "name": "sandia",
+    "id": 2,
+    "image": "sandia.png",
+    "pricePound": 10000,
+    "category": "frutas",
+    "from": "El Retiro",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "fresa",
+    "id": 3,
+    "image": "fresa.png",
+    "pricePound": 5200,
+    "category": "frutas",
+    "from": "Rionegro",
+    "description": "Tampoco tiene potaxio"
+  },
+  {
+    "name": "banano",
+    "id": 4,
+    "image": "banano.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "Tiene potaxio"
+  },
+  {
+    "name": "cereza",
+    "id": 5,
+    "image": "cereza.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "melon",
+    "id": 6,
+    "image": "melon.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "mango",
+    "id": 7,
+    "image": "mango.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "pera",
+    "id": 8,
+    "image": "pera.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "zanahoria",
+    "id": 9,
+    "image": "zanahoria.png",
+    "pricePound": 150000,
+    "category": "verduras",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "pitahaya",
+    "id": 10,
+    "image": "pitahaya.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "lulo",
+    "id": 11,
+    "image": "lulo.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "papaya",
+    "id": 12,
+    "image": "papaya.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "aguacate",
+    "id": 13,
+    "image": "aguacate.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "maracuya",
+    "id": 14,
+    "image": "maracuya.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "guanabana",
+    "id": 15 ,
+    "image": "guanabana.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "curuba",
+    "id": 16,
+    "image": "curuba.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "ciruela",
+    "id": 17,
+    "image": "ciruela.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "tomate de arbol",
+    "id": 18,
+    "image": "tomatearbol.png",
+    "pricePound": 150000,
+    "category": "frutas",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "tomate",
+    "id": 19,
+    "image": "tomate.png",
+    "pricePound": 150000,
+    "category": "verduras",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "cebolla",
+    "id": 20,
+    "image": "cebolla.png",
+    "pricePound": 150000,
+    "category": "verduras",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "cebolla de rama",
+    "id": 21,
+    "image": "cebolla de rama.png",
+    "pricePound": 150000,
+    "category": "verduras",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "habichuela",
+    "id": 22,
+    "image": "habichuela.png",
+    "pricePound": 150000,
+    "category": "verduras",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  },
+  {
+    "name": "uva",
+    "id": 23,
+    "image": "habichuela.png",
+    "pricePound": 150000,
+    "category": "verduras",
+    "from": "Barbosa",
+    "description": "No tiene potaxio"
+  }
 ]

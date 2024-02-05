@@ -3,13 +3,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Cargar el archivo JSON
     fetch('../js/products.json')
-      .then(response => {return response.json()})
-      .then(data => {
+    .then(response => {return response.json()})
+    .then(data => {
         // Llamar a la función showProducts con los datos cargados
         showProducts(data);
         dataProducts = data;
-      })
-      .catch(error => console.error('Error cargando el archivo JSON:', error));
+    })
+    .catch(error => console.error('Error cargando el archivo JSON:', error));
 });
 
 
@@ -29,7 +29,9 @@ const titleFruits = document.querySelector('.titulo-frutas');
 const numbersProductsInCart = document.querySelector('#numeroProductosEnCarrito');
 const modal = document.querySelector('.modalContainerMain');
 const closeButton = document.querySelector('.close-button');
-const modalContent = document.querySelector('.modalContent');
+const modalContainer = document.querySelector('.modalContainer')
+const modalContainerMain = document.querySelector('.modalContainerMain');
+const totalPrice = document.querySelector('.totalPrice')
 let buttonsAddCart = document.querySelectorAll('.buttonsAddCart'); // STEP 1 (Carrito) - Crear una variable para el boton de agregar al carrito
 
 const productsInCart = [];
@@ -233,8 +235,6 @@ function updateButtonAdd() { // STEP 2 (Carrito) - Crear la funcion donde indica
 };
 
 function addToCart(event) { // STEP 5 (Carrito) - Crear la funcion
-    
-
 
     const idButton = event.currentTarget.id; // STEP 6 (Carrito) - Aqui se guarda el ID del evento (click) en la variable idButton, esto para igualar el id del producto cuando le damos click
     let productAdded = '';
@@ -254,16 +254,12 @@ function addToCart(event) { // STEP 5 (Carrito) - Crear la funcion
 
    updateNumbersInCart();
    
-   console.log(productsInCart);
+   //console.log(productsInCart);
    
    localStorage.setItem('products_cart', JSON.stringify(productsInCart));
-   
-//    productsInCart.forEach(i => {
-//     console.log('---------------------------------------------------------------');
-//     console.log(i);
-//     console.log('UNO MAS');
-//     })
+
    createContentModal();
+   actualizarTotal();
 };
 
 function updateNumbersInCart() {
@@ -273,25 +269,82 @@ function updateNumbersInCart() {
     numbersProductsInCart.innerHTML = newNumberCart;
 };
 
+/*---------------MODAL DEL CARRITO---------------*/
+
 function createContentModal() {
+    modalContainer.innerHTML='';
     
-    modalContent.innerHTML=''
-    
-    const modalContent = document.createElement('div');
-    
-    productsInCart.forEach((i) => {
+    productsInCart.forEach( productInCart => {
+        const {name,quantityInCart, image} = productInCart;
+
+        modalContainer.innerHTML += `
+        <div class="modalContent"> 
+            <img src="../Img/frutasyverduras/${image}" width="80px">
+            <div class="textContentModal">
+                <h3 class="cantidadCarritoModal text">${name}</h3>
+                <p class="textCantidadEnCarrito text">Cantidad: <button class="minus">-</button> ${quantityInCart} <button class="plus">+</button></p>
+                
+            </div>
+        </div>
         
-        const {name,quantityInCart}=i
+        `;
+        modalContainerMain.appendChild(modalContainer);
+    });
+
+    updateButtonsPlus();
+    updateButtonsMinus();
+
+};
+
+function updateButtonsPlus() {
+    plus = document.querySelectorAll('.plus');
+
+    plus.forEach( event => {
+        event.addEventListener('click', add);
+    });
+};
+
+function updateButtonsMinus() {
+    minus = document.querySelectorAll('.minus');
+
+    minus.forEach( event => {
+        event.addEventListener('click', subtract);
+    });
+};
 
 
-        //console.log(i);
-        
-        const productElement = document.createElement('p');
+function add() {
+    const index = Array.from(document.querySelectorAll('.plus')).indexOf(event.target); // Obtener el índice del botón plus clicado
+    const productInCart = productsInCart[index];
 
-        productElement.textContent = `${name} - Cantidad: ${quantityInCart}`;
+    if (productInCart) {
+        productInCart.quantityInCart++; // Incrementar la cantidad del producto en el carrito
+        localStorage.setItem('products_cart', JSON.stringify(productsInCart)); // Actualizar el localStorage
+    };
 
-        modalContent.appendChild(productElement);
-    })
-    
-    modalContent.appendChild(productElement)
+    createContentModal();
+    actualizarTotal()
+    //console.log(productsInCart);
+}
+
+function subtract() {
+    const index = Array.from(document.querySelectorAll('.minus')).indexOf(event.target); 
+    const productInCart = productsInCart[index];
+
+    if (productInCart) {
+        productInCart.quantityInCart--; 
+        localStorage.setItem('products_cart', JSON.stringify(productsInCart));
+    };
+
+    createContentModal();
+    actualizarTotal()
+    //console.log(productsInCart);
+}
+
+
+function actualizarTotal(){
+
+    const totalCalculado = productsInCart.reduce((acc, product)=> acc+ (product.pricePound*product.quantityInCart),0 )
+
+    totalPrice.innerText= `$${totalCalculado}`
 }
