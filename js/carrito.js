@@ -1,24 +1,3 @@
-/* ------CARGA INICIAL DE LOCALSTORAGE SETEANDO PRODUCTOS PARA EJEMPLO---- */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-const products_cart = JSON.parse(localStorage.getItem('products_cart'));
-console.log(products_cart);
-
-if(products_cart){
-    
-    cargarProductosCarrito()
-}/* else{ //lo más seguro es que tenga que eliminar esto cuando ya funcione lo de juanes, ya que lo que quiero cargar es si o si lo que hay en local storage
-
-    localStorage.setItem("products_cart", JSON.stringify(products));
-} */
-
-/* Para setear el localStorage del carrito*/
-/*  localStorage.removeItem('products_cart')  */
-
-})
-
-
 /* ------SELECTORES--------- */
 
 const contenedorCarritoVacio = document.querySelector("#carrito-vacio");
@@ -28,11 +7,22 @@ const botonVaciar = document.querySelector("#carrito-acciones-vaciar");
 const contenedorTotal = document.querySelector("#total");
 const botonComprar = document.querySelector("#carrito-acciones-comprar");
 
-
+let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");//es let porque se carga inicialmente otras cosas y tiene que volver a cargarse. Se usa para eliminar productos del carrito
 
 /* -----TRAER PRODUCTOS DEL LOCALSTORAGE */
 const products_cart= JSON.parse(localStorage.getItem('products_cart')) //productos en carito
 console.log(products_cart);
+
+
+
+/* ------CARGA INICIAL DE LOCALSTORAGE ---- */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+cargarProductosCarrito()
+
+})
+
 
 /* Pintar el carrito de compras dentro del perfil */
 
@@ -42,7 +32,7 @@ function cargarProductosCarrito(){ //Carga todo lo que hay en localStorage
         contenedorCarritoVacio.classList.add('disabled')
         contenedorCarritoProductos.classList.remove("disabled");
         contenedorCarritoAcciones.classList.remove("disabled");
-        //contenedorCarritoComprado.classList.add("disabled");
+    
     
         contenedorCarritoProductos.innerHTML=''
     
@@ -75,14 +65,12 @@ function cargarProductosCarrito(){ //Carga todo lo que hay en localStorage
     
             contenedorCarritoProductos.append(div);
         })
-       
-        
+            
     
     }else{
         contenedorCarritoVacio.classList.remove("disabled");
         contenedorCarritoProductos.classList.add("disabled");
         contenedorCarritoAcciones.classList.add("disabled");
-       
     
     }
 
@@ -95,9 +83,6 @@ function cargarProductosCarrito(){ //Carga todo lo que hay en localStorage
 /* ---Función para eliminar productos del LS, por ende, del carrito */
 
 
-
-let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");//es let porque se carga inicialmente otras cosas y tiene que volver a cargarse
-
 function actualizarBotonesEliminar() {
     botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar"); //para que se reasignen cada vez que se creen los productos en el for each
 
@@ -109,7 +94,6 @@ function actualizarBotonesEliminar() {
 
 function eliminarDelCarrito(e) {
     const idBoton= e.currentTarget.id
-    console.log(idBoton); //me imprime el id del producto al que estoy clickeando
 
     const idBotonString = idBoton.toString();
 
@@ -121,11 +105,9 @@ function eliminarDelCarrito(e) {
 
     const index= products_cart.findIndex(product =>product.id.toString() === idBotonString)
 
-    console.log(products_cart);
-    products_cart.splice(index,1)
-    console.log(products_cart);
+    products_cart.splice(index,1) //elimina de products_cart un elemento (1) segun el index obtenido
 
-    cargarProductosCarrito() //Hasta aqui se elimina y se pinta pero si recargo se vuelve a cargar todo porque no se ha eliminado de LS
+    cargarProductosCarrito() 
 
     localStorage.setItem('products_cart', JSON.stringify(products_cart))
 

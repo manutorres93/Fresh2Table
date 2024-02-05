@@ -114,6 +114,7 @@ function validarUsuario() {
     if (dataUser.email === emailUser && dataUser.id === idUser) {
       console.log("Usuario encontrado:", dataUser);
       secondModal.showModal();
+      changePassword(idUser)
       
 
       btnCerrarModalAux.addEventListener("click", () => {
@@ -131,7 +132,7 @@ function validarUsuario() {
   validateData();
 
 
-  changePassword(idUser)
+  /* changePassword(idUser) */
 
   
 }
