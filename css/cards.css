@@ -178,7 +178,7 @@ p {
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   padding: 20px;
-  height: 70%;
+  height: 71%;
   z-index: 1000;
   border-top-left-radius: 1rem;
   border-bottom-left-radius: 1rem;
@@ -243,6 +243,8 @@ p {
   border-radius: 1rem;
   display: grid;
   grid-template-columns: auto auto;  
+  background-color: #e8e3dc56;
+  padding: 8px;
 }
 
 .cantidadCarritoModal{
