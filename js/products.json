@@ -3,207 +3,207 @@
     "name": "manzana",
     "id": 1,
     "image": "manzana.png",
-    "pricePound": 3000,
+    "pricePound": 2500,
     "category": "frutas",
     "from": "Rionegro",
-    "description": "Tampoco tiene potaxio"
+    "description": "Fresca y deliciosa manzana"
   },
   {
     "name": "sandia",
     "id": 2,
     "image": "sandia.png",
-    "pricePound": 10000,
+    "pricePound": 8000,
     "category": "frutas",
     "from": "El Retiro",
-    "description": "No tiene potaxio"
+    "description": "Dulce sandía"
   },
   {
     "name": "fresa",
     "id": 3,
     "image": "fresa.png",
-    "pricePound": 5200,
+    "pricePound": 4500,
     "category": "frutas",
     "from": "Rionegro",
-    "description": "Tampoco tiene potaxio"
+    "description": "Sabrosa fresa fresca de la región"
   },
   {
     "name": "banano",
     "id": 4,
     "image": "banano.png",
-    "pricePound": 150000,
+    "pricePound": 12000,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "Tiene potaxio"
+    "description": "Banano nutritivo y lleno de energía"
   },
   {
     "name": "cereza",
     "id": 5,
     "image": "cereza.png",
-    "pricePound": 150000,
+    "pricePound": 10000,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Cerezas jugosas y deliciosas"
   },
   {
     "name": "melon",
     "id": 6,
     "image": "melon.png",
-    "pricePound": 150000,
+    "pricePound": 8500,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Melón refrescante de primera calidad"
   },
   {
     "name": "mango",
     "id": 7,
     "image": "mango.png",
-    "pricePound": 150000,
+    "pricePound": 9500,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Mango jugoso y tropical"
   },
   {
     "name": "pera",
     "id": 8,
     "image": "pera.png",
-    "pricePound": 150000,
+    "pricePound": 8800,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Pera dulce y fresca"
   },
   {
     "name": "zanahoria",
     "id": 9,
     "image": "zanahoria.png",
-    "pricePound": 150000,
+    "pricePound": 3000,
     "category": "verduras",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Zanahoria crujiente y nutritiva"
   },
   {
     "name": "pitahaya",
     "id": 10,
     "image": "pitahaya.png",
-    "pricePound": 150000,
+    "pricePound": 18000,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Pitahaya exótica y llena de sabor"
   },
   {
     "name": "lulo",
     "id": 11,
     "image": "lulo.png",
-    "pricePound": 150000,
+    "pricePound": 12000,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Lulo tropical y refrescante"
   },
   {
     "name": "papaya",
     "id": 12,
     "image": "papaya.png",
-    "pricePound": 150000,
+    "pricePound": 10500,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Papaya jugosa y saludable"
   },
   {
     "name": "aguacate",
     "id": 13,
     "image": "aguacate.png",
-    "pricePound": 150000,
+    "pricePound": 15000,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Aguacate fresco y cremoso"
   },
   {
     "name": "maracuya",
     "id": 14,
     "image": "maracuya.png",
-    "pricePound": 150000,
+    "pricePound": 16000,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Maracuyá tropical y lleno de pasión"
   },
   {
     "name": "guanabana",
     "id": 15 ,
     "image": "guanabana.png",
-    "pricePound": 150000,
+    "pricePound": 17000,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Guanábana suave y deliciosa"
   },
   {
     "name": "curuba",
     "id": 16,
     "image": "curuba.png",
-    "pricePound": 150000,
+    "pricePound": 13000,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Curuba exótica y llena de sabor"
   },
   {
     "name": "ciruela",
     "id": 17,
     "image": "ciruela.png",
-    "pricePound": 150000,
+    "pricePound": 11000,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Ciruela jugosa y dulce"
   },
   {
     "name": "tomate de arbol",
     "id": 18,
     "image": "tomatearbol.png",
-    "pricePound": 150000,
+    "pricePound": 6500,
     "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Tomate de árbol fresco y nutritivo"
   },
   {
     "name": "tomate",
     "id": 19,
     "image": "tomate.png",
-    "pricePound": 150000,
+    "pricePound": 3500,
     "category": "verduras",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Tomate rojo y jugoso"
   },
   {
     "name": "cebolla",
     "id": 20,
     "image": "cebolla.png",
-    "pricePound": 150000,
+    "pricePound": 2800,
     "category": "verduras",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Cebolla fresca y aromática"
   },
   {
     "name": "cebolla de rama",
     "id": 21,
     "image": "cebolla de rama.png",
-    "pricePound": 150000,
+    "pricePound": 3200,
     "category": "verduras",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Cebolla de rama crujiente y deliciosa"
   },
   {
     "name": "habichuela",
     "id": 22,
     "image": "habichuela.png",
-    "pricePound": 150000,
+    "pricePound": 4200,
     "category": "verduras",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Habichuela tierna y nutritiva"
   },
   {
     "name": "uva",
     "id": 23,
-    "image": "habichuela.png",
-    "pricePound": 150000,
-    "category": "verduras",
+    "image": "uva.png",
+    "pricePound": 12000,
+    "category": "frutas",
     "from": "Barbosa",
-    "description": "No tiene potaxio"
+    "description": "Uvas frescas y jugosas"
   }
 ]

@@ -72,7 +72,7 @@ function showProducts(products) {
             </div>
             
             <div class="price">
-                <p class="productPrice"> $ ${product.pricePound} COP</p>
+                <p class="productPrice"> $ ${product.pricePound} COP / Lb</p>
             </div>
             
             <div class="cart">
@@ -361,6 +361,6 @@ function updateTotal(){
 
     const totalCalculado = productsInCart.reduce( (accumulator, product) => accumulator+ (product.pricePound*product.quantityInCart), 0 );
 
-    totalPrice.innerText = `Valor de la compra: $${totalCalculado}`;
+    totalPrice.innerText = `Valor de la compra: $ ${totalCalculado}`;
 };
 
