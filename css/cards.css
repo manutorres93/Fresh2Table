@@ -228,6 +228,10 @@ p {
   border-radius: 1rem;
 }
 
+.irComprar{
+  text-decoration: none;
+}
+
 .close-button{
   border-radius: 6rem;
   width: 40%;

@@ -362,6 +362,6 @@ function updateTotal(){
 
     const totalCalculado = productsInCart.reduce( (accumulator, product) => accumulator+ (product.pricePound*product.quantityInCart), 0 );
 
-    totalPrice.innerText = `Valor de la compra: $ ${totalCalculado}`;
+    totalPrice.innerText = `Realizar compra $ ${totalCalculado}`;
 };
 
