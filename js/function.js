@@ -1,8 +1,5 @@
-
-
 /*---------------CARGAR LA BASE DE DATOS--------------- */
 let productsInCart = [];
-
 document.addEventListener('DOMContentLoaded', () => {
     // Cargar el archivo JSON
     fetch('../js/products.json')
@@ -70,7 +67,7 @@ function showProducts(products) {
             </div>
             
             <div class="description">
-            <p class="productDescription">${product.description} proveniente de ${product.from}</p>
+                <p class="productDescription">${product.description}</p>
             </div>
             
             <div class="price">
@@ -173,11 +170,13 @@ function showFoodFiltered(produtsToShow) {
             </div>
             
             <div class="description">
-                <p class="productDescription">${product.description} proveniente de ${product.from}</p>
+                <p class="productDescription">${product.description}</p>
             </div>
             
             <div class="price">
-                <p class="productPrice"> $ ${product.pricePound} COP / Lb</p>
+                <p class="productPrice"> $ ${product.pricePound
+                
+                } COP</p>
             </div>
             
             <div class="cart">

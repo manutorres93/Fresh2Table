@@ -1,78 +1,88 @@
 * {
-    margin: 0;
-  }
-  
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #E8E3DC;
-  }
-  
-  
-  /* ------------------------------------------- */
-  header {
-    position: fixed;
-    width: 100%;
-/*     display: none; */
-    background-color: #008000;
-    z-index: 1000;
-  }
-  
-  .navbar {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10px;
-  }
-  
-  .logo-header img {
-    width: 70px;
-  
-  }
-  
-  .menu img {
-    width: 30px;
-  }
-  
-  h2 {
-    color: #453633;
-  }
-  
-  /* ------------------------------------------- */
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #E8E3DC;
+}
 
 
+/* ------------------------------------------- */
+header {
+  position: fixed;
+  width: 100%;
+  display: none;
+  background-color: #008000;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.logo-header img {
+  width: 70px;
+
+}
+
+.menu img {
+  width: 30px;
+}
+
+h2 {
+  color: #453633;
+}
+
+/* ------------------------------------------- */
 
 
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-    background-color: #453633;
-  }
-  
-  .container-footer {
-    width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  
-  .container-footer a {
-    text-decoration: none;
-    color: #fff;
-    ;
-  }
-  
-  .logo-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    font-size: 20px;
-  }
-  
-  .logo-footer img {
-    width: 80px;
-  }
+.xd{
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background-color: #60350193;
+}
+
+.container-footer {
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.container-footer a {
+  text-decoration: none;
+  color: #fff;
+  ;
+}
+
+.logo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 20px;
+}
+
+.logo-footer img {
+  width: 80px;
+}
+
+.redes-sociales{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
