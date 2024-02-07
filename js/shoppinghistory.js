@@ -11,15 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   showHistory(userInformation);
 });
 
-//Creo que no voy a tener que traerlos todos, porque ya me traje la info del que se loggeo
-/* let usersData;
-
-async function bringUsers() {
-    console.log("holaaaa");
-    usersData = await getUsers();
-  
-    console.log(usersData);
-  } */
 
 logout();
 
@@ -34,6 +25,7 @@ const contenedorhistorialProductos = document.querySelector(
 
 function showHistory(userData) {
   console.log(userData.shopHistory);
+  console.log("hola");
 
   let arrayShopHistory = userData.shopHistory;
   let arrayElementsBought = userData.shopHistory[0].shop;
@@ -109,28 +101,24 @@ function modalAcciones(arrayElementsBought) {
     modal.close();
   });
 
-  llenarModal(arrayElementsBought)
-
+  llenarModal(arrayElementsBought);
 }
 
-
-function llenarModal(arrayElementsBought){
-
+function llenarModal(arrayElementsBought) {
   const tTable = document.querySelector(".tbody");
 
   arrayElementsBought.forEach((element) => {
-    const { name, quantity,image } = element;
+    const { name, quantity, image } = element;
 
     console.log(name);
     tTable.innerHTML += `
    
             <tr>
-            <td><img  src="/Img/Frutas/${image}" width="50px" /></td>
+            <td><img  src="/Img/frutasyverduras/${image}" width="50px" /></td>
             <td>${name}</td>
             <td>${quantity}</td>
             </tr>
             
   `;
   });
-
 }

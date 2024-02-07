@@ -106,7 +106,7 @@ function getModalInformation(information) {
                 <input class="input-modal" type="text" class="form-control" id="nombre" value="${name}">
             </div>
             <div class="form-group">
-                <label class="label-modal" for="edad">Cédula:</label>
+                <label class="label-modal" for="edad">Edad:</label>
                 <input class="input-modal" type="text" class="form-control" id="edad" value="${age}">
             </div>
             <div class="form-group">

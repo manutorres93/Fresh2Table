@@ -43,7 +43,7 @@ function cargarProductosCarrito(){ //Carga todo lo que hay en localStorage
             const div = document.createElement("div");
             div.classList.add("carrito-producto");
             div.innerHTML = `
-                <img class="carrito-producto-imagen" src="/Img/${image}" alt="${image}">
+                <img class="carrito-producto-imagen" src="/Img/frutasyverduras/${image}" alt="${image}">
                 <div class="carrito-producto-titulo">
                     <small>Producto</small>
                     <h3>${name}</h3>

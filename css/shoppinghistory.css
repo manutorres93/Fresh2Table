@@ -266,35 +266,7 @@ main {
     cursor: pointer;
 }
 
-.historial-acciones {
-    display: flex;
-    justify-content: space-between;
-}
 
-.historial-acciones-vaciar {
-    border: 0;
-    background-color: var(--clr-gray);
-    padding: 1rem;
-    border-radius: 1rem;
-    color: var(--clr-main);
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.historial-acciones-derecha {
-    display: flex;
-}
-
-.historial-acciones-total {
-    display: flex;
-    background-color: var(--clr-gray);
-    padding: 1rem;
-    color: var(--clr-main);
-    text-transform: uppercase;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    gap: 1rem;
-}
 
 .historial-acciones-detalles {
     border: 0;

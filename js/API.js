@@ -24,7 +24,7 @@ export const getUsersById= async(id)=>{
         const result = await fetch(`${url}/${id}`)
         const usersData = await result.json()
 
-        const usersIsArray = Array.isArray(usersData) //? usersData : [];
+        const usersIsArray = Array.isArray(usersData) 
 
         console.log(usersIsArray);
         console.log(usersData);

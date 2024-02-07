@@ -132,7 +132,7 @@ function validarUsuario() {
   validateData();
 
 
-  /* changePassword(idUser) */
+
 
   
 }
