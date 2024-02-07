@@ -2,7 +2,9 @@
 
 export function numeroCarrito(){
 
-  let productsInCart= JSON.parse(localStorage.getItem('products_cart')) //productos en carito
+  let productsInCart= JSON.parse(localStorage.getItem('products_cart')) || []//productos en carito
+
+  console.log(productsInCart);
 
   let newNumberCart = productsInCart.reduce((accumulator, product) => accumulator + product.quantityInCart, 0);
   console.log(newNumberCart);
@@ -12,6 +14,8 @@ export function numeroCarrito(){
   numberCart.innerText=newNumberCart
 
   console.log(newNumberCart);
+
+  console.log('Salida');
 
   
   
