@@ -77,7 +77,7 @@ function showProducts(products) {
             <div class="cart">
             
                 <button class="buttonsAddCart" id="${product.id}">
-                    <p class="textbuttonsAddCart">Agregar al carrito</p>
+                    <p class="textbuttonsAddCart">Agregar</p>
                 </button>
             
             </div>
@@ -182,7 +182,7 @@ function showFoodFiltered(produtsToShow) {
             <div class="cart">
             
                 <button class="buttonsAddCart" id="${product.id}">
-                    <p class="textbuttonsAddCart">Agregar al carrito</p>
+                    <p class="textbuttonsAddCart">Agregar</p>
                 </button>
             
             </div>
