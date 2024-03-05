@@ -8,7 +8,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-color: black;
-  background-image: url("/Img/bg2.png");
+  background-image: url("../Img/bg2.png");
 
 }
 
@@ -180,7 +180,7 @@
 }
 
 .link-shop {
-  background-image: url(/Img/patron1.jpeg);
+  background-image: url(../Img/patron1.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
